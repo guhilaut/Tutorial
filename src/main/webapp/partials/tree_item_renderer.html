@@ -1,0 +1,6 @@
+{{data.bundleName}}
+   <button class="btn btn-primary" ng-click="add(data)">Add node</button>
+   <button class="btn btn-primary" ng-click="delete(data)" ng-show="data.nodes.length > 0">Delete nodes</button>
+   <ul>
+       <li ng-repeat="data in data.nodes" ng-include="'tree_item_renderer.html'"></li>
+   </ul>

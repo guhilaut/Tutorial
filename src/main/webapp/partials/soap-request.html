@@ -1,0 +1,37 @@
+<div class="modal-content">
+  <form role="form" ng-submit="updatexml()" name="request">
+    <div class="modal-header">
+      <button type="button" class="close" ng-click="cancel()">&times;</button>
+      <h4 class="modal-title">Test Operation:</h4>
+    </div>
+    <div class="modal-body">
+      <div class="row">
+      <div class="col-lg-6">
+        <div class="form-group">
+          <label for="email">Request:<span style="color:red;">*</span></label>
+          <textarea class="form-control" ng-model="requestxml" style="height:350px;"></textarea>
+        </div>
+      </div>
+      <div class="col-lg-6">
+        <div class="form-group">
+          <label for="email">Response:</label>
+          <br/>
+          <textarea class="form-control" ng-model="responsexml" style="height:350px;" disabled></textarea>
+        </div>
+      </div>
+    </div>
+  </div>
+    <div class="modal-footer">
+      <div class="row">
+      <div class="col-lg-6">
+        <input type="submit" value="Submit" class="btn btn-info" ng-disabled="request.$invalid">
+      </div>
+      <div class="col-lg-6">
+        <button type="button" class="btn btn-info" ng-click="resetxml()">Clear Response</button>
+
+        <button type="button" class="btn btn-default" ng-click="cancel()">Close</button>
+      </div>
+    </div>
+    </div>
+  </form>
+</div>

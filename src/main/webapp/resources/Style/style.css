@@ -1,0 +1,115 @@
+﻿@import url(https://fonts.googleapis.com/css?family=Roboto+Condensed:300);
+a:hover{text-decoration: none;}
+.navbar-custom .navbar-nav>li>a {
+    color: #9d9d9d;
+}
+.main{margin:30px;}
+.main h1{padding: 60px 0 0;font-family: 'Roboto Condensed'; text-transform: Uppercase; color: #525151;}
+.box{background: #015480;padding:30px 10px; margin:15px 0; width: 100%; font-size: 18px; text-align: center;color: #FFF;}
+.box:hover{background: #2d88b7;}
+/*
+ * Sidebar
+ */
+
+/* Hide for mobile, show later */
+.sidebar {
+  display: none;
+}
+.list-group li .list-group{
+	margin-left:10px;
+}
+
+@media (min-width: 768px) {
+  .sidebar {
+    position: fixed;
+    top: 51px;
+    bottom: 0;
+    left: 0;
+    z-index: 1000;
+    display: block;
+    padding: 20px;
+    padding-top: 0;
+    overflow-x: hidden;
+    overflow-y: auto; /* Scrollable contents if viewport is shorter than content. */
+    background-color: #0d83c2;
+    border-right: 1px solid #67d0cc;
+  }
+}
+.heading{background: #015480; padding: 5px; color: #FFF; padding:15px 20px;}
+/* Sidebar navigation */
+.nav-sidebar {
+  margin-right: -21px; /* 20px padding + 1px border */
+  margin-bottom: 20px;
+  margin-left: -20px;
+}
+.nav-sidebar > li > a {
+  color: #fff;
+  padding-right: 20px;
+  padding-left: 20px;
+  border-bottom: 1px solid #fff;
+}
+.nav-sidebar > li > a:hover,.nav-sidebar > li > a:focus{
+background-color: #5cb4e3;
+}
+.nav-sidebar > .active > a,
+.nav-sidebar > .active > a:hover,
+.nav-sidebar > .active > a:focus {
+  background-color: #007e7a;
+}
+
+.main-list-heading{padding-right: 0px!important;
+padding-left: 0px!important;
+border-bottom: none!important;}
+
+.main-list-heading:hover{background: none!important}
+/*
+ * Main content
+ */
+
+.mainpage {
+  padding:70px 5px 35px 5px;
+}
+.serverLoginModal{top: 158px;}
+.serverLoginHeader{padding: 10px; background:#efa463 }
+.marginTop15px{margin-top:15px}
+.marginBottom15px{margin-bottom:15px}
+.tHeadBg{background:#ccc }
+.wColorF{color: #fff}
+.navbar-nav {float: none}
+.noleftPadding{padding-left: 0px}
+.noRightPadding{padding-right: 0px}
+.cBlack{color:#000!important}
+.margin10px{margin: 10px}
+.marginTop5px{margin-top: 5px}
+.iconFont26px{font-size: 85px}
+.paddingLR40px{padding-left:40px; padding-right:40px}
+
+
+/* input[value="Apply"] { display:none; }​*/
+
+@media (min-width: 768px) {
+  .mainpage {
+    padding-right: 40px;
+    padding-left: 40px;
+  }
+}
+.mainpage .page-header {
+  margin-top: 0;
+}
+
+
+.footer {
+  position:fixed;
+  bottom: 0;
+  width: 100%;
+  background-color: #333333;
+  z-index: 1001;
+}
+.container .text-muted {
+  margin: 3px 0;
+  text-align: center;
+}
+#chartdiv {
+	width	: 100%;
+	height	: 500px;
+}															

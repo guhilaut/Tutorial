@@ -1,0 +1,22 @@
+<div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" ng-click="cancel()">&times;</button>
+        <h4 class="modal-title">Data Source Info</h4>
+      </div>
+      <div class="modal-body">
+        <table class="table table-striped table-bordered" cellspacing="0">
+          <tbody>
+            <tr>
+            <td>Max Total</td><td>{{connectionAttr.MaxTotal}}</td></tr>
+            <tr><td>Num Active</td><td>{{connectionAttr.NumActive}}</td></tr>
+            <tr><td>Num Idle</td><td>{{connectionAttr.NumIdle}}</td></tr>
+            <tr><td>Max Idle</td><td>{{connectionAttr.MaxIdle}}</td></tr>
+          <tr>  <td>Min Idle</td><td>{{connectionAttr.MinIdle}}</td></tr>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" ng-click="cancel()">Close</button>
+      </div>
+    </div>

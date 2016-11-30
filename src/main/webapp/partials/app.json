@@ -1,0 +1,2723 @@
+FAME TOOL API
+HomeService
+1>	Request for list of environments on the context
+URL:     http://localhost:8080/StatisticsApi/
+RequestType:  GET
+Content-Type: application/json
+Response:
+[
+  "qa-load",
+  "qa-func",
+  "XavientLocal",
+  "qa-int",
+  "dev",
+  "production",
+  "staging"
+]
+
+2>	Upon click of any of these environments, go to login page and hit below url,
+URL: http://localhost:8080/StatisticsApi/login
+RequestType: POST
+Content-Type: application/json
+RequestBody: {"name":"admin","password":"admin"}
+Response: {
+  "flag": true,
+  "message": null
+}
+
+3>	Load all the servers within this environment
+URL: http://localhost:8080/StatisticsApi/loadServers/XavientLocal
+(Note: append the environment name with the url, in above case environment is XavientLocal)
+RequestType: GET
+Content-Type: application/json
+Response:
+{
+  "serverInfoList": [
+    {
+      "name": "10.62.60.122",
+      "pingStatus": false,
+      "dbCount": 0,
+      "bundleCount": 0
+    },
+    {
+      "name": "10.2.0.189",
+      "pingStatus": false,
+      "dbCount": 0,
+      "bundleCount": 0
+    },
+    {
+      "name": "10.62.60.88",
+      "pingStatus": false,
+      "dbCount": 0,
+      "bundleCount": 0
+    },
+    {
+      "name": "127.0.0.1",
+      "pingStatus": true,
+      "dbCount": 0,
+      "bundleCount": 274
+    }
+  ],
+  "flag": true,
+  "message": null
+}
+
+Note: This service will take a while so need to have a loader.
+BundleService
+4>	For getting the list of bundles:
+URL : http://localhost:8080/StatisticsApi/bundle/list/127.0.0.1
+(Note: append the server ip with the url, in above case ip is 127.0.0.1. : This service will take a while so need to have a loader.)
+RequestType: GET
+Content-Type: application/json
+Response:
+{
+  "bundleList": [
+    {
+      "Version": "1.7.18.redhat-001",
+      "Blueprint": "",
+      "State": "ACTIVE",
+      "ID": "230",
+      "Start Level": "50",
+      "Name": "org.jruby.jruby"
+    },
+    {
+      "Version": "2.5.0",
+      "Blueprint": "",
+      "State": "ACTIVE",
+      "ID": "110",
+      "Start Level": "10",
+      "Name": "org.apache.servicemix.specs.jsr339-api-2.0"
+    },
+    {
+      "Version": "2.15.1.redhat-620133",
+      "Blueprint": "",
+      "State": "ACTIVE",
+      "ID": "231",
+      "Start Level": "50",
+      "Name": "org.apache.camel.camel-script"
+    },
+    {
+      "Version": "3.1.4",
+      "Blueprint": "",
+      "State": "ACTIVE",
+      "ID": "111",
+      "Start Level": "20",
+      "Name": "stax2-api"
+    },
+    {
+      "Version": "3.2.12.RELEASE_1",
+      "Blueprint": "",
+      "State": "ACTIVE",
+      "ID": "232",
+      "Start Level": "30",
+      "Name": "org.apache.servicemix.bundles.spring-test"
+    },
+    {
+      "Version": "4.4.1",
+      "Blueprint": "",
+      "State": "ACTIVE",
+      "ID": "112",
+      "Start Level": "20",
+      "Name": "woodstox-core-asl"
+    },
+    {
+      "Version": "2.1.0.3_7",
+      "Blueprint": "",
+      "State": "ACTIVE",
+      "ID": "233",
+      "Start Level": "50",
+      "Name": "org.apache.servicemix.bundles.cglib"
+    },
+    {
+      "Version": "2.2.11.1",
+      "Blueprint": "",
+      "State": "ACTIVE",
+      "ID": "113",
+      "Start Level": "20",
+      "Name": "org.apache.servicemix.bundles.jaxb-impl"
+    },
+    {
+      "Version": "2.15.1.redhat-620133",
+      "Blueprint": "",
+      "State": "ACTIVE",
+      "ID": "234",
+      "Start Level": "50",
+      "Name": "org.apache.camel.camel-spring-javaconfig"
+    },
+    {
+      "Version": "2.2.11.1",
+      "Blueprint": "",
+      "State": "ACTIVE",
+      "ID": "114",
+      "Start Level": "20",
+      "Name": "org.apache.servicemix.bundles.jaxb-xjc"
+    },
+    {
+      "Version": "2.15.1.redhat-620133",
+      "Blueprint": "",
+      "State": "ACTIVE",
+      "ID": "235",
+      "Start Level": "50",
+      "Name": "org.apache.camel.camel-jaxb"
+    },
+    {
+      "Version": "2.2.1",
+      "Blueprint": "",
+      "State": "ACTIVE",
+      "ID": "115",
+      "Start Level": "30",
+      "Name": "org.apache.ws.xmlschema.core"
+    },
+    {
+      "Version": "3.1.0.7",
+      "Blueprint": "",
+      "State": "ACTIVE",
+      "ID": "236",
+      "Start Level": "50",
+      "Name": "org.apache.servicemix.bundles.commons-httpclient"
+    },
+    {
+      "Version": "1.2.0.5",
+      "Blueprint": "",
+      "State": "ACTIVE",
+      "ID": "116",
+      "Start Level": "30",
+      "Name": "org.apache.servicemix.bundles.xmlresolver"
+    },
+    {
+      "Version": "2.15.1.redhat-620133",
+      "Blueprint": "",
+      "State": "ACTIVE",
+      "ID": "237",
+      "Start Level": "50",
+      "Name": "org.apache.camel.camel-http"
+    },
+    {
+      "Version": "1.2.13.1",
+      "Blueprint": "",
+      "State": "ACTIVE",
+      "ID": "117",
+      "Start Level": "30",
+      "Name": "org.apache.servicemix.bundles.fastinfoset"
+    },
+    {
+      "Version": "2.15.1.redhat-620133",
+      "Blueprint": "",
+      "State": "ACTIVE",
+      "ID": "238",
+      "Start Level": "50",
+      "Name": "org.apache.camel.camel-jetty-common"
+    },
+    {
+      "Version": "3.0.4.redhat-620133",
+      "Blueprint": "",
+      "State": "ACTIVE",
+      "ID": "118",
+      "Start Level": "40",
+      "Name": "org.apache.cxf.cxf-core"
+    },
+    {
+      "Version": "2.15.1.redhat-620133",
+      "Blueprint": "",
+      "State": "ACTIVE",
+      "ID": "239",
+      "Start Level": "50",
+      "Name": "org.apache.camel.camel-jetty8"
+    },
+    {
+      "Version": "3.0.4.redhat-620133",
+      "Blueprint": "",
+      "State": "ACTIVE",
+      "ID": "119",
+      "Start Level": "40",
+      "Name": "org.apache.cxf.cxf-rt-management"
+    },
+    {
+      "Version": "1.0.10",
+      "Blueprint": "",
+      "State": "ACTIVE",
+      "ID": "10",
+      "Start Level": "19",
+      "Name": "org.apache.felix.metatype"
+    },
+    {
+      "Version": "2.4.0.redhat-620133",
+      "Blueprint": "",
+      "State": "ACTIVE",
+      "ID": "11",
+      "Start Level": "20",
+      "Name": "org.apache.karaf.services.eventadmin"
+    },
+    {
+      "Version": "2.4.0.redhat-620133",
+      "Blueprint": "Created",
+      "State": "ACTIVE",
+      "ID": "12",
+      "Start Level": "25",
+      "Name": "org.apache.karaf.features.obr"
+    },
+    {
+      "Version": "6.2.0.redhat-133",
+      "Blueprint": "Created",
+      "State": "ACTIVE",
+      "ID": "13",
+      "Start Level": "50",
+      "Name": "org.jboss.fuse.shared-commands"
+    },
+    {
+      "Version": "2.4.0.redhat-620133",
+      "Blueprint": "Created",
+      "State": "ACTIVE",
+      "ID": "14",
+      "Start Level": "80",
+      "Name": "org.apache.karaf.admin.management"
+    },
+    {
+      "Version": "5.0.3",
+      "Blueprint": "",
+      "State": "ACTIVE",
+      "ID": "15",
+      "Start Level": "20",
+      "Name": "org.objectweb.asm.all"
+    },
+    {
+      "Version": "1.1.0",
+      "Blueprint": "",
+      "State": "ACTIVE",
+      "ID": "16",
+      "Start Level": "20",
+      "Name": "org.apache.aries.util"
+    },
+    {
+      "Version": "1.0.1",
+      "Blueprint": "",
+      "State": "ACTIVE",
+      "ID": "17",
+      "Start Level": "20",
+      "Name": "org.apache.aries.proxy.api"
+    },
+    {
+      "Version": "1.0.4",
+      "Blueprint": "",
+      "State": "ACTIVE",
+      "ID": "18",
+      "Start Level": "20",
+      "Name": "org.apache.aries.proxy.impl"
+    },
+    {
+      "Version": "1.0.1",
+      "Blueprint": "",
+      "State": "ACTIVE",
+      "ID": "19",
+      "Start Level": "20",
+      "Name": "org.apache.aries.blueprint.api"
+    },
+    {
+      "Version": "2.15.1.redhat-620133",
+      "Blueprint": "",
+      "State": "ACTIVE",
+      "ID": "240",
+      "Start Level": "50",
+      "Name": "org.apache.camel.camel-jmx"
+    },
+    {
+      "Version": "3.0.4.redhat-620133",
+      "Blueprint": "Created",
+      "State": "ACTIVE",
+      "ID": "120",
+      "Start Level": "40",
+      "Name": "org.apache.cxf.karaf.cxf-karaf-commands"
+    },
+    {
+      "Version": "2.15.1.redhat-620133",
+      "Blueprint": "",
+      "State": "ACTIVE",
+      "ID": "241",
+      "Start Level": "50",
+      "Name": "org.apache.camel.camel-mail"
+    },
+    {
+      "Version": "4.4.1",
+      "Blueprint": "",
+      "State": "ACTIVE",
+      "ID": "0",
+      "Start Level": "0",
+      "Name": "org.apache.felix.framework"
+    },
+    {
+      "Version": "3.2.3",
+      "Blueprint": "",
+      "State": "ACTIVE",
+      "ID": "121",
+      "Start Level": "30",
+      "Name": "org.ops4j.pax.web.pax-web-jsp"
+    },
+    {
+      "Version": "2.15.1.redhat-620133",
+      "Blueprint": "",
+      "State": "ACTIVE",
+      "ID": "242",
+      "Start Level": "50",
+      "Name": "org.apache.camel.camel-paxlogging"
+    },
+    {
+      "Version": "1.2.0.redhat-133",
+      "Blueprint": "",
+      "State": "ACTIVE",
+      "ID": "1",
+      "Start Level": "4",
+      "Name": "io.fabric8.fabric-ssl"
+    },
+    {
+      "Version": "3.2.3",
+      "Blueprint": "",
+      "State": "ACTIVE",
+      "ID": "122",
+      "Start Level": "30",
+      "Name": "org.ops4j.pax.web.pax-web-extender-whiteboard"
+    },
+    {
+      "Version": "2.15.1.redhat-620133",
+      "Blueprint": "",
+      "State": "ACTIVE",
+      "ID": "243",
+      "Start Level": "50",
+      "Name": "org.apache.camel.camel-rmi"
+    },
+    {
+      "Version": "2.4.0",
+      "Blueprint": "",
+      "State": "ACTIVE",
+      "ID": "2",
+      "Start Level": "5",
+      "Name": "org.ops4j.pax.url.wrap"
+    },
+    {
+      "Version": "3.0.4.redhat-620133",
+      "Blueprint": "",
+      "State": "ACTIVE",
+      "ID": "123",
+      "Start Level": "40",
+      "Name": "org.apache.cxf.cxf-rt-transports-http"
+    },
+    {
+      "Version": "3.2.3",
+      "Blueprint": "",
+      "State": "ACTIVE",
+      "ID": "244",
+      "Start Level": "30",
+      "Name": "org.ops4j.pax.web.pax-web-extender-war"
+    },
+    {
+      "Version": "2.4.0",
+      "Blueprint": "",
+      "State": "ACTIVE",
+      "ID": "3",
+      "Start Level": "5",
+      "Name": "org.ops4j.pax.url.mvn"
+    },
+    {
+      "Version": "1.3.7",
+      "Blueprint": "",
+      "State": "ACTIVE",
+      "ID": "124",
+      "Start Level": "30",
+      "Name": "org.codehaus.jettison.jettison"
+    },
+    {
+      "Version": "3.2.3",
+      "Blueprint": "",
+      "State": "ACTIVE",
+      "ID": "245",
+      "Start Level": "30",
+      "Name": "org.ops4j.pax.web.pax-web-deployer"
+    },
+    {
+      "Version": "1.8.2",
+      "Blueprint": "",
+      "State": "ACTIVE",
+      "ID": "4",
+      "Start Level": "8",
+      "Name": "org.ops4j.pax.logging.pax-logging-service"
+    },
+    {
+      "Version": "3.0.4.redhat-620133",
+      "Blueprint": "",
+      "State": "ACTIVE",
+      "ID": "125",
+      "Start Level": "40",
+      "Name": "org.apache.cxf.cxf-rt-rs-extension-providers"
+    },
+    {
+      "Version": "2.4.0",
+      "Blueprint": "",
+      "State": "ACTIVE",
+      "ID": "246",
+      "Start Level": "30",
+      "Name": "org.ops4j.pax.url.war"
+    },
+    {
+      "Version": "1.8.2",
+      "Blueprint": "",
+      "State": "ACTIVE",
+      "ID": "5",
+      "Start Level": "8",
+      "Name": "org.ops4j.pax.logging.pax-logging-api"
+    },
+    {
+      "Version": "3.0.4.redhat-620133",
+      "Blueprint": "",
+      "State": "ACTIVE",
+      "ID": "126",
+      "Start Level": "40",
+      "Name": "org.apache.cxf.cxf-rt-rs-extension-search"
+    },
+    {
+      "Version": "1.8.0",
+      "Blueprint": "",
+      "State": "ACTIVE",
+      "ID": "247",
+      "Start Level": "30",
+      "Name": "org.ops4j.pax.swissbox.bnd"
+    },
+    {
+      "Version": "2.0.4",
+      "Blueprint": "",
+      "State": "ACTIVE",
+      "ID": "6",
+      "Start Level": "10",
+      "Name": "org.apache.felix.bundlerepository"
+    },
+    {
+      "Version": "3.0.4.redhat-620133",
+      "Blueprint": "",
+      "State": "ACTIVE",
+      "ID": "127",
+      "Start Level": "40",
+      "Name": "org.apache.cxf.cxf-rt-rs-service-description"
+    },
+    {
+      "Version": "1.5.0",
+      "Blueprint": "",
+      "State": "ACTIVE",
+      "ID": "248",
+      "Start Level": "30",
+      "Name": "org.ops4j.base.net"
+    },
+    {
+      "Version": "1.8.2",
+      "Blueprint": "",
+      "State": "ACTIVE",
+      "ID": "7",
+      "Start Level": "10",
+      "Name": "org.apache.felix.configadmin"
+    },
+    {
+      "Version": "3.0.4.redhat-620133",
+      "Blueprint": "",
+      "State": "ACTIVE",
+      "ID": "128",
+      "Start Level": "40",
+      "Name": "org.apache.cxf.cxf-rt-frontend-jaxrs"
+    },
+    {
+      "Version": "1.5.0",
+      "Blueprint": "",
+      "State": "ACTIVE",
+      "ID": "249",
+      "Start Level": "30",
+      "Name": "org.ops4j.base.monitors"
+    },
+    {
+      "Version": "3.4.2",
+      "Blueprint": "",
+      "State": "ACTIVE",
+      "ID": "8",
+      "Start Level": "11",
+      "Name": "org.apache.felix.fileinstall"
+    },
+    {
+      "Version": "3.0.4.redhat-620133",
+      "Blueprint": "",
+      "State": "ACTIVE",
+      "ID": "129",
+      "Start Level": "40",
+      "Name": "org.apache.cxf.cxf-rt-rs-client"
+    },
+    {
+      "Version": "2.4.0.redhat-620133",
+      "Blueprint": "",
+      "State": "ACTIVE",
+      "ID": "9",
+      "Start Level": "15",
+      "Name": "org.apache.karaf.features.core"
+    },
+    {
+      "Version": "1.0.5",
+      "Blueprint": "Created",
+      "State": "ACTIVE",
+      "ID": "20",
+      "Start Level": "20",
+      "Name": "org.apache.aries.blueprint.cm"
+    },
+    {
+      "Version": "1.4.2",
+      "Blueprint": "Created",
+      "State": "ACTIVE",
+      "ID": "21",
+      "Start Level": "20",
+      "Name": "org.apache.aries.blueprint.core"
+    },
+    {
+      "Version": "2.4.0.redhat-620133",
+      "Blueprint": "Created",
+      "State": "ACTIVE",
+      "ID": "22",
+      "Start Level": "30",
+      "Name": "org.apache.karaf.jaas.config"
+    },
+    {
+      "Version": "2.4.0.redhat-620133",
+      "Blueprint": "Created",
+      "State": "ACTIVE",
+      "ID": "23",
+      "Start Level": "30",
+      "Name": "org.apache.karaf.jaas.modules"
+    },
+    {
+      "Version": "1.10.0",
+      "Blueprint": "",
+      "State": "ACTIVE",
+      "ID": "24",
+      "Start Level": "30",
+      "Name": "org.apache.commons.codec"
+    },
+    {
+      "Version": "2.6.0",
+      "Blueprint": "",
+      "State": "ACTIVE",
+      "ID": "25",
+      "Start Level": "30",
+      "Name": "org.apache.commons.lang"
+    },
+    {
+      "Version": "1.9.2.1",
+      "Blueprint": "",
+      "State": "ACTIVE",
+      "ID": "26",
+      "Start Level": "30",
+      "Name": "org.apache.servicemix.bundles.jasypt"
+    },
+    {
+      "Version": "2.4.0.redhat-620133",
+      "Blueprint": "Created",
+      "State": "ACTIVE",
+      "ID": "27",
+      "Start Level": "30",
+      "Name": "org.apache.karaf.jaas.jasypt"
+    },
+    {
+      "Version": "1.5.0",
+      "Blueprint": "",
+      "State": "ACTIVE",
+      "ID": "28",
+      "Start Level": "30",
+      "Name": "org.ops4j.base.util.property"
+    },
+    {
+      "Version": "1.5.0",
+      "Blueprint": "",
+      "State": "ACTIVE",
+      "ID": "29",
+      "Start Level": "30",
+      "Name": "org.ops4j.base.lang"
+    },
+    {
+      "Version": "2.4.0.redhat-620133",
+      "Blueprint": "Created",
+      "State": "ACTIVE",
+      "ID": "250",
+      "Start Level": "30",
+      "Name": "org.apache.karaf.shell.web"
+    },
+    {
+      "Version": "1.6.3.1",
+      "Blueprint": "",
+      "State": "ACTIVE",
+      "ID": "130",
+      "Start Level": "30",
+      "Name": "org.apache.servicemix.bundles.wsdl4j"
+    },
+    {
+      "Version": "1.4.0.redhat-133",
+      "Blueprint": "Created",
+      "State": "ACTIVE",
+      "ID": "251",
+      "Start Level": "80",
+      "Name": "io.hawt.hawtio-json-schema-mbean"
+    },
+    {
+      "Version": "3.0.4.redhat-620133",
+      "Blueprint": "",
+      "State": "ACTIVE",
+      "ID": "131",
+      "Start Level": "40",
+      "Name": "org.apache.cxf.cxf-rt-wsdl"
+    },
+    {
+      "Version": "1.4.0.redhat-133",
+      "Blueprint": "",
+      "State": "ACTIVE",
+      "ID": "252",
+      "Start Level": "80",
+      "Name": "io.hawt.hawtio-osgi-jmx"
+    },
+    {
+      "Version": "3.0.4.redhat-620133",
+      "Blueprint": "",
+      "State": "ACTIVE",
+      "ID": "132",
+      "Start Level": "40",
+      "Name": "org.apache.cxf.cxf-rt-databinding-jaxb"
+    },
+    {
+      "Version": "1.4.0.redhat-133",
+      "Blueprint": "",
+      "State": "ACTIVE",
+      "ID": "253",
+      "Start Level": "80",
+      "Name": "io.hawt.hawtio-web"
+    },
+    {
+      "Version": "3.0.4.redhat-620133",
+      "Blueprint": "",
+      "State": "ACTIVE",
+      "ID": "133",
+      "Start Level": "40",
+      "Name": "org.apache.cxf.cxf-rt-bindings-xml"
+    },
+    {
+      "Version": "2.12.1.redhat-001",
+      "Blueprint": "",
+      "State": "ACTIVE",
+      "ID": "254",
+      "Start Level": "80",
+      "Name": "jline"
+    },
+    {
+      "Version": "3.0.4.redhat-620133",
+      "Blueprint": "",
+      "State": "ACTIVE",
+      "ID": "134",
+      "Start Level": "40",
+      "Name": "org.apache.cxf.cxf-rt-bindings-soap"
+    },
+    {
+      "Version": "1.4.0.redhat-133",
+      "Blueprint": "Created",
+      "State": "ACTIVE",
+      "ID": "255",
+      "Start Level": "80",
+      "Name": "io.hawt.hawtio-karaf-terminal"
+    },
+    {
+      "Version": "3.0.4.redhat-620133",
+      "Blueprint": "",
+      "State": "ACTIVE",
+      "ID": "135",
+      "Start Level": "40",
+      "Name": "org.apache.cxf.cxf-rt-frontend-simple"
+    },
+    {
+      "Version": "1.2.0.redhat-133",
+      "Blueprint": "",
+      "State": "ACTIVE",
+      "ID": "256",
+      "Start Level": "80",
+      "Name": "io.fabric8.support.support-core"
+    },
+    {
+      "Version": "3.0.4.redhat-620133",
+      "Blueprint": "",
+      "State": "ACTIVE",
+      "ID": "136",
+      "Start Level": "40",
+      "Name": "org.apache.cxf.cxf-rt-frontend-jaxws"
+    },
+    {
+      "Version": "1.2.0.redhat-133",
+      "Blueprint": "",
+      "State": "ACTIVE",
+      "ID": "257",
+      "Start Level": "80",
+      "Name": "io.fabric8.support.support-commands"
+    },
+    {
+      "Version": "2.10.4.v20140209-180020-VFINAL-b66a39653b",
+      "Blueprint": "",
+      "State": "ACTIVE",
+      "ID": "137",
+      "Start Level": "80",
+      "Name": "org.scala-lang.scala-library"
+    },
+    {
+      "Version": "1.2.0.redhat-133",
+      "Blueprint": "",
+      "State": "ACTIVE",
+      "ID": "258",
+      "Start Level": "80",
+      "Name": "io.fabric8.support.support-karaf"
+    },
+    {
+      "Version": "3.12.1.GA_3",
+      "Blueprint": "",
+      "State": "ACTIVE",
+      "ID": "138",
+      "Start Level": "80",
+      "Name": "org.apache.servicemix.bundles.javassist"
+    },
+    {
+      "Version": "1.2.0.redhat-133",
+      "Blueprint": "",
+      "State": "ACTIVE",
+      "ID": "259",
+      "Start Level": "80",
+      "Name": "io.fabric8.support.support-webapp"
+    },
+    {
+      "Version": "2.1.5.2",
+      "Blueprint": "",
+      "State": "ACTIVE",
+      "ID": "139",
+      "Start Level": "80",
+      "Name": "org.apache.servicemix.bundles.jackson-module-scala"
+    },
+    {
+      "Version": "1.8.0",
+      "Blueprint": "",
+      "State": "ACTIVE",
+      "ID": "30",
+      "Start Level": "30",
+      "Name": "org.ops4j.pax.swissbox.core"
+    },
+    {
+      "Version": "1.8.0",
+      "Blueprint": "",
+      "State": "ACTIVE",
+      "ID": "31",
+      "Start Level": "30",
+      "Name": "org.ops4j.pax.swissbox.property"
+    },
+    {
+      "Version": "2.4.0",
+      "Blueprint": "",
+      "State": "ACTIVE",
+      "ID": "32",
+      "Start Level": "30",
+      "Name": "org.ops4j.pax.url.commons"
+    },
+    {
+      "Version": "2.4.0",
+      "Blueprint": "",
+      "State": "ACTIVE",
+      "ID": "33",
+      "Start Level": "30",
+      "Name": "org.ops4j.pax.url.classpath"
+    },
+    {
+      "Version": "2.4.0.redhat-620133",
+      "Blueprint": "Created",
+      "State": "ACTIVE",
+      "ID": "34",
+      "Start Level": "30",
+      "Name": "org.apache.karaf.shell.console"
+    },
+    {
+      "Version": "2.4.0.redhat-620133",
+      "Blueprint": "Created",
+      "State": "ACTIVE",
+      "ID": "35",
+      "Start Level": "30",
+      "Name": "org.apache.karaf.shell.commands"
+    },
+    {
+      "Version": "2.4.0.redhat-620133",
+      "Blueprint": "Created",
+      "State": "ACTIVE",
+      "ID": "36",
+      "Start Level": "30",
+      "Name": "org.apache.karaf.shell.osgi"
+    },
+    {
+      "Version": "2.4.0.redhat-620133",
+      "Blueprint": "Created",
+      "State": "ACTIVE",
+      "ID": "37",
+      "Start Level": "30",
+      "Name": "org.apache.karaf.shell.log"
+    },
+    {
+      "Version": "2.4.0.redhat-620133",
+      "Blueprint": "Created",
+      "State": "ACTIVE",
+      "ID": "38",
+      "Start Level": "30",
+      "Name": "org.apache.karaf.shell.packages"
+    },
+    {
+      "Version": "2.4.0.redhat-620133",
+      "Blueprint": "Created",
+      "State": "ACTIVE",
+      "ID": "39",
+      "Start Level": "30",
+      "Name": "org.apache.karaf.shell.dev"
+    },
+    {
+      "Version": "1.4.0.redhat-133",
+      "Blueprint": "",
+      "State": "ACTIVE",
+      "ID": "260",
+      "Start Level": "80",
+      "Name": "io.hawt.hawtio-plugin-redhat-access"
+    },
+    {
+      "Version": "1.1.0.Final",
+      "Blueprint": "",
+      "State": "ACTIVE",
+      "ID": "140",
+      "Start Level": "80",
+      "Name": "javax.validation.api"
+    },
+    {
+      "Version": "1.2.0.redhat-133",
+      "Blueprint": "",
+      "State": "ACTIVE",
+      "ID": "261",
+      "Start Level": "80",
+      "Name": "io.fabric8.support.support-fabric8"
+    },
+    {
+      "Version": "2.4.3",
+      "Blueprint": "",
+      "State": "ACTIVE",
+      "ID": "141",
+      "Start Level": "80",
+      "Name": "com.fasterxml.jackson.jaxrs.jackson-jaxrs-base"
+    },
+    {
+      "Version": "1.4.0.redhat-133",
+      "Blueprint": "",
+      "State": "ACTIVE",
+      "ID": "262",
+      "Start Level": "80",
+      "Name": "io.hawt.hawtio-redhat-fuse-branding"
+    },
+    {
+      "Version": "2.4.3",
+      "Blueprint": "",
+      "State": "ACTIVE",
+      "ID": "142",
+      "Start Level": "80",
+      "Name": "com.fasterxml.jackson.jaxrs.jackson-jaxrs-json-provider"
+    },
+    {
+      "Version": "1.1.1",
+      "Blueprint": "",
+      "State": "ACTIVE",
+      "ID": "263",
+      "Start Level": "80",
+      "Name": "javax.ws.rs.jsr311-api"
+    },
+    {
+      "Version": "2.4.3",
+      "Blueprint": "",
+      "State": "ACTIVE",
+      "ID": "143",
+      "Start Level": "80",
+      "Name": "com.fasterxml.jackson.module.jackson-module-jaxb-annotations"
+    },
+    {
+      "Version": "1.3.2",
+      "Blueprint": "",
+      "State": "ACTIVE",
+      "ID": "264",
+      "Start Level": "80",
+      "Name": "org.jolokia.osgi"
+    },
+    {
+      "Version": "1.3.2.1",
+      "Blueprint": "",
+      "State": "ACTIVE",
+      "ID": "144",
+      "Start Level": "80",
+      "Name": "org.apache.servicemix.bundles.swagger-annotations"
+    },
+    {
+      "Version": "1.3.2.1",
+      "Blueprint": "",
+      "State": "ACTIVE",
+      "ID": "145",
+      "Start Level": "80",
+      "Name": "org.apache.servicemix.bundles.swagger-core"
+    },
+    {
+      "Version": "2.4.0.redhat-620133",
+      "Blueprint": "",
+      "State": "RESOLVED",
+      "ID": "266",
+      "Start Level": "30",
+      "Name": "org.apache.karaf.deployer.kar"
+    },
+    {
+      "Version": "1.3.2.3",
+      "Blueprint": "",
+      "State": "ACTIVE",
+      "ID": "146",
+      "Start Level": "80",
+      "Name": "org.apache.servicemix.bundles.swagger-jaxrs"
+    },
+    {
+      "Version": "0.0.0",
+      "Blueprint": "",
+      "State": "ACTIVE",
+      "ID": "267",
+      "Start Level": "80",
+      "Name": null
+    },
+    {
+      "Version": "0.9.8.1",
+      "Blueprint": "",
+      "State": "ACTIVE",
+      "ID": "147",
+      "Start Level": "80",
+      "Name": "org.apache.servicemix.bundles.reflections"
+    },
+    {
+      "Version": "3.2.4.1",
+      "Blueprint": "",
+      "State": "ACTIVE",
+      "ID": "148",
+      "Start Level": "80",
+      "Name": "org.apache.servicemix.bundles.json4s"
+    },
+    {
+      "Version": "3.0.3.RELEASE_1",
+      "Blueprint": "",
+      "State": "ACTIVE",
+      "ID": "269",
+      "Start Level": "50",
+      "Name": "org.apache.servicemix.bundles.spring-batch-infrastructure"
+    },
+    {
+      "Version": "1.2.0.redhat-133",
+      "Blueprint": "Created",
+      "State": "ACTIVE",
+      "ID": "149",
+      "Start Level": "80",
+      "Name": "io.fabric8.fabric-cxf"
+    },
+    {
+      "Version": "2.4.0.redhat-620133",
+      "Blueprint": "Created",
+      "State": "ACTIVE",
+      "ID": "40",
+      "Start Level": "30",
+      "Name": "org.apache.karaf.shell.config"
+    },
+    {
+      "Version": "2.4.0.redhat-620133",
+      "Blueprint": "Created",
+      "State": "ACTIVE",
+      "ID": "41",
+      "Start Level": "30",
+      "Name": "org.apache.karaf.jaas.command"
+    },
+    {
+      "Version": "2.4.0.redhat-620133",
+      "Blueprint": "Created",
+      "State": "ACTIVE",
+      "ID": "42",
+      "Start Level": "30",
+      "Name": "org.apache.karaf.management.server"
+    },
+    {
+      "Version": "1.1.1",
+      "Blueprint": "",
+      "State": "ACTIVE",
+      "ID": "43",
+      "Start Level": "30",
+      "Name": "org.apache.aries.jmx.api"
+    },
+    {
+      "Version": "1.1.3",
+      "Blueprint": "",
+      "State": "ACTIVE",
+      "ID": "44",
+      "Start Level": "30",
+      "Name": "org.apache.aries.jmx.core"
+    },
+    {
+      "Version": "1.1.0",
+      "Blueprint": "",
+      "State": "ACTIVE",
+      "ID": "45",
+      "Start Level": "30",
+      "Name": "org.apache.aries.jmx.blueprint.api"
+    },
+    {
+      "Version": "1.1.0",
+      "Blueprint": "",
+      "State": "ACTIVE",
+      "ID": "46",
+      "Start Level": "30",
+      "Name": "org.apache.aries.jmx.blueprint.core"
+    },
+    {
+      "Version": "2.4.0.redhat-620133",
+      "Blueprint": "Created",
+      "State": "ACTIVE",
+      "ID": "47",
+      "Start Level": "30",
+      "Name": "org.apache.karaf.management.mbeans.system"
+    },
+    {
+      "Version": "2.4.0.redhat-620133",
+      "Blueprint": "Created",
+      "State": "ACTIVE",
+      "ID": "48",
+      "Start Level": "30",
+      "Name": "org.apache.karaf.management.mbeans.bundles"
+    },
+    {
+      "Version": "2.4.0.redhat-620133",
+      "Blueprint": "Created",
+      "State": "ACTIVE",
+      "ID": "49",
+      "Start Level": "30",
+      "Name": "org.apache.karaf.management.mbeans.services"
+    },
+    {
+      "Version": "3.0.3.RELEASE_1",
+      "Blueprint": "",
+      "State": "ACTIVE",
+      "ID": "270",
+      "Start Level": "50",
+      "Name": "org.apache.servicemix.bundles.spring-batch-core"
+    },
+    {
+      "Version": "1.2.0.redhat-133",
+      "Blueprint": "",
+      "State": "ACTIVE",
+      "ID": "150",
+      "Start Level": "80",
+      "Name": "io.fabric8.fabric-cxf-registry"
+    },
+    {
+      "Version": "2.15.1.redhat-620133",
+      "Blueprint": "",
+      "State": "ACTIVE",
+      "ID": "271",
+      "Start Level": "50",
+      "Name": "org.apache.camel.camel-spring-batch"
+    },
+    {
+      "Version": "1.2.0.redhat-133",
+      "Blueprint": "Created",
+      "State": "ACTIVE",
+      "ID": "151",
+      "Start Level": "80",
+      "Name": "io.fabric8.fabric-rest"
+    },
+    {
+      "Version": "2.4.0.redhat-620133",
+      "Blueprint": "Created",
+      "State": "ACTIVE",
+      "ID": "152",
+      "Start Level": "80",
+      "Name": "org.apache.karaf.features.command"
+    },
+    {
+      "Version": "1.2.0.redhat-133",
+      "Blueprint": "",
+      "State": "ACTIVE",
+      "ID": "153",
+      "Start Level": "80",
+      "Name": "io.fabric8.fabric-commands"
+    },
+    {
+      "Version": "1.2.0.redhat-133",
+      "Blueprint": "",
+      "State": "ACTIVE",
+      "ID": "154",
+      "Start Level": "80",
+      "Name": "io.fabric8.fabric-project-deployer"
+    },
+    {
+      "Version": "2.2.1",
+      "Blueprint": "",
+      "State": "ACTIVE",
+      "ID": "275",
+      "Start Level": "50",
+      "Name": "org.quartz-scheduler.quartz"
+    },
+    {
+      "Version": "2.4.0",
+      "Blueprint": "",
+      "State": "ACTIVE",
+      "ID": "155",
+      "Start Level": "80",
+      "Name": "org.apache.commons.io"
+    },
+    {
+      "Version": "0.0.0",
+      "Blueprint": "",
+      "State": "ACTIVE",
+      "ID": "276",
+      "Start Level": "50",
+      "Name": "wrap_mvn_c3p0_c3p0_0.9.1.2"
+    },
+    {
+      "Version": "1.2.0.redhat-133",
+      "Blueprint": "",
+      "State": "ACTIVE",
+      "ID": "156",
+      "Start Level": "80",
+      "Name": "io.fabric8.fabric-maven-proxy"
+    },
+    {
+      "Version": "2.15.1.redhat-620133",
+      "Blueprint": "",
+      "State": "ACTIVE",
+      "ID": "277",
+      "Start Level": "50",
+      "Name": "org.apache.camel.camel-quartz2"
+    },
+    {
+      "Version": "2.4.0.redhat-620133",
+      "Blueprint": "Created",
+      "State": "ACTIVE",
+      "ID": "157",
+      "Start Level": "80",
+      "Name": "org.apache.karaf.features.management"
+    },
+    {
+      "Version": "2.4.0.redhat-620133",
+      "Blueprint": "",
+      "State": "ACTIVE",
+      "ID": "158",
+      "Start Level": "80",
+      "Name": "org.apache.karaf.shell.scr"
+    },
+    {
+      "Version": "2.4.0.redhat-620133",
+      "Blueprint": "",
+      "State": "ACTIVE",
+      "ID": "159",
+      "Start Level": "30",
+      "Name": "org.apache.karaf.management.mbeans.scr"
+    },
+    {
+      "Version": "2.4.0.redhat-620133",
+      "Blueprint": "Created",
+      "State": "ACTIVE",
+      "ID": "50",
+      "Start Level": "30",
+      "Name": "org.apache.karaf.management.mbeans.config"
+    },
+    {
+      "Version": "2.4.0.redhat-620133",
+      "Blueprint": "Created",
+      "State": "ACTIVE",
+      "ID": "51",
+      "Start Level": "30",
+      "Name": "org.apache.karaf.management.mbeans.log"
+    },
+    {
+      "Version": "2.4.0.redhat-620133",
+      "Blueprint": "Created",
+      "State": "ACTIVE",
+      "ID": "52",
+      "Start Level": "30",
+      "Name": "org.apache.karaf.management.mbeans.packages"
+    },
+    {
+      "Version": "2.4.0.redhat-620133",
+      "Blueprint": "Created",
+      "State": "ACTIVE",
+      "ID": "53",
+      "Start Level": "30",
+      "Name": "org.apache.karaf.management.mbeans.dev"
+    },
+    {
+      "Version": "1.8.2",
+      "Blueprint": "",
+      "State": "ACTIVE",
+      "ID": "54",
+      "Start Level": "30",
+      "Name": "org.apache.felix.scr"
+    },
+    {
+      "Version": "1.2.0.redhat-133",
+      "Blueprint": "",
+      "State": "ACTIVE",
+      "ID": "55",
+      "Start Level": "80",
+      "Name": "io.fabric8.fabric-maven"
+    },
+    {
+      "Version": "2.4.0.redhat-620133",
+      "Blueprint": "Created",
+      "State": "ACTIVE",
+      "ID": "56",
+      "Start Level": "80",
+      "Name": "org.apache.karaf.shell.ssh"
+    },
+    {
+      "Version": "1.49.0",
+      "Blueprint": "",
+      "State": "ACTIVE",
+      "ID": "57",
+      "Start Level": "80",
+      "Name": "bcprov"
+    },
+    {
+      "Version": "0.12.0.redhat-002",
+      "Blueprint": "",
+      "State": "ACTIVE",
+      "ID": "58",
+      "Start Level": "80",
+      "Name": "org.apache.sshd.core"
+    },
+    {
+      "Version": "2.0.9",
+      "Blueprint": "",
+      "State": "ACTIVE",
+      "ID": "59",
+      "Start Level": "80",
+      "Name": "org.apache.mina.core"
+    },
+    {
+      "Version": "1.2.0.redhat-133",
+      "Blueprint": "Created",
+      "State": "ACTIVE",
+      "ID": "160",
+      "Start Level": "80",
+      "Name": "io.fabric8.patch.patch-core"
+    },
+    {
+      "Version": "1.2.0.redhat-133",
+      "Blueprint": "",
+      "State": "ACTIVE",
+      "ID": "161",
+      "Start Level": "80",
+      "Name": "io.fabric8.patch.patch-commands"
+    },
+    {
+      "Version": "1.1.1",
+      "Blueprint": "",
+      "State": "ACTIVE",
+      "ID": "162",
+      "Start Level": "30",
+      "Name": "org.apache.aries.transaction.manager"
+    },
+    {
+      "Version": "1.0.1",
+      "Blueprint": "Created",
+      "State": "ACTIVE",
+      "ID": "163",
+      "Start Level": "30",
+      "Name": "org.apache.aries.transaction.blueprint"
+    },
+    {
+      "Version": "1.0.0.6",
+      "Blueprint": "",
+      "State": "ACTIVE",
+      "ID": "164",
+      "Start Level": "30",
+      "Name": "org.apache.servicemix.bundles.aopalliance"
+    },
+    {
+      "Version": "3.2.12.RELEASE_1",
+      "Blueprint": "",
+      "State": "ACTIVE",
+      "ID": "165",
+      "Start Level": "30",
+      "Name": "org.apache.servicemix.bundles.spring-core"
+    },
+    {
+      "Version": "3.2.12.RELEASE_1",
+      "Blueprint": "",
+      "State": "ACTIVE",
+      "ID": "166",
+      "Start Level": "30",
+      "Name": "org.apache.servicemix.bundles.spring-expression"
+    },
+    {
+      "Version": "3.2.12.RELEASE_1",
+      "Blueprint": "",
+      "State": "ACTIVE",
+      "ID": "167",
+      "Start Level": "30",
+      "Name": "org.apache.servicemix.bundles.spring-beans"
+    },
+    {
+      "Version": "1.0.0.SNAPSHOT",
+      "Blueprint": "Created",
+      "State": "ACTIVE",
+      "ID": "288",
+      "Start Level": "80",
+      "Name": "camel-cxf-contract-first-blueprint"
+    },
+    {
+      "Version": "3.2.12.RELEASE_1",
+      "Blueprint": "",
+      "State": "ACTIVE",
+      "ID": "168",
+      "Start Level": "30",
+      "Name": "org.apache.servicemix.bundles.spring-aop"
+    },
+    {
+      "Version": "3.2.12.RELEASE_1",
+      "Blueprint": "",
+      "State": "ACTIVE",
+      "ID": "169",
+      "Start Level": "30",
+      "Name": "org.apache.servicemix.bundles.spring-context"
+    },
+    {
+      "Version": "2.4.0.redhat-620133",
+      "Blueprint": "Created",
+      "State": "ACTIVE",
+      "ID": "60",
+      "Start Level": "80",
+      "Name": "org.apache.karaf.admin.core"
+    },
+    {
+      "Version": "2.4.0.redhat-620133",
+      "Blueprint": "",
+      "State": "ACTIVE",
+      "ID": "61",
+      "Start Level": "10",
+      "Name": "org.apache.karaf.service.guard"
+    },
+    {
+      "Version": "2.4.0.redhat-620133",
+      "Blueprint": "Created",
+      "State": "ACTIVE",
+      "ID": "62",
+      "Start Level": "80",
+      "Name": "org.apache.karaf.deployer.blueprint"
+    },
+    {
+      "Version": "2.4.0.redhat-620133",
+      "Blueprint": "Created",
+      "State": "ACTIVE",
+      "ID": "63",
+      "Start Level": "80",
+      "Name": "org.apache.karaf.deployer.spring"
+    },
+    {
+      "Version": "2.4.0.redhat-620133",
+      "Blueprint": "Created",
+      "State": "ACTIVE",
+      "ID": "64",
+      "Start Level": "80",
+      "Name": "org.apache.karaf.deployer.wrap"
+    },
+    {
+      "Version": "1.2.0",
+      "Blueprint": "",
+      "State": "ACTIVE",
+      "ID": "65",
+      "Start Level": "80",
+      "Name": "javax.annotation-api"
+    },
+    {
+      "Version": "2.2.1.Final",
+      "Blueprint": "",
+      "State": "ACTIVE",
+      "ID": "66",
+      "Start Level": "80",
+      "Name": "org.mvel2"
+    },
+    {
+      "Version": "0.1.51.1",
+      "Blueprint": "",
+      "State": "ACTIVE",
+      "ID": "67",
+      "Start Level": "80",
+      "Name": "org.apache.servicemix.bundles.jsch"
+    },
+    {
+      "Version": "3.2.1",
+      "Blueprint": "",
+      "State": "ACTIVE",
+      "ID": "68",
+      "Start Level": "80",
+      "Name": "org.apache.commons.collections"
+    },
+    {
+      "Version": "1.8.3",
+      "Blueprint": "",
+      "State": "ACTIVE",
+      "ID": "69",
+      "Start Level": "80",
+      "Name": "org.apache.commons.beanutils"
+    },
+    {
+      "Version": "3.2.12.RELEASE_1",
+      "Blueprint": "",
+      "State": "ACTIVE",
+      "ID": "170",
+      "Start Level": "30",
+      "Name": "org.apache.servicemix.bundles.spring-context-support"
+    },
+    {
+      "Version": "3.0.0.1",
+      "Blueprint": "",
+      "State": "ACTIVE",
+      "ID": "171",
+      "Start Level": "30",
+      "Name": "org.apache.servicemix.bundles.cglib"
+    },
+    {
+      "Version": "1.2.1",
+      "Blueprint": "",
+      "State": "ACTIVE",
+      "ID": "172",
+      "Start Level": "30",
+      "Name": "org.springframework.osgi.io"
+    },
+    {
+      "Version": "1.2.1",
+      "Blueprint": "",
+      "State": "ACTIVE",
+      "ID": "173",
+      "Start Level": "30",
+      "Name": "org.springframework.osgi.core"
+    },
+    {
+      "Version": "1.2.1",
+      "Blueprint": "",
+      "State": "ACTIVE",
+      "ID": "174",
+      "Start Level": "30",
+      "Name": "org.springframework.osgi.extender"
+    },
+    {
+      "Version": "1.2.1",
+      "Blueprint": "",
+      "State": "ACTIVE",
+      "ID": "175",
+      "Start Level": "30",
+      "Name": "org.springframework.osgi.extensions.annotations"
+    },
+    {
+      "Version": "1.1.1",
+      "Blueprint": "",
+      "State": "ACTIVE",
+      "ID": "176",
+      "Start Level": "50",
+      "Name": "org.apache.geronimo.specs.geronimo-annotation_1.0_spec"
+    },
+    {
+      "Version": "1.1.1",
+      "Blueprint": "",
+      "State": "ACTIVE",
+      "ID": "177",
+      "Start Level": "50",
+      "Name": "org.apache.geronimo.specs.geronimo-jms_1.1_spec"
+    },
+    {
+      "Version": "1.0.1",
+      "Blueprint": "",
+      "State": "ACTIVE",
+      "ID": "178",
+      "Start Level": "50",
+      "Name": "org.apache.geronimo.specs.geronimo-j2ee-management_1.1_spec"
+    },
+    {
+      "Version": "0.6.4",
+      "Blueprint": "",
+      "State": "ACTIVE",
+      "ID": "179",
+      "Start Level": "50",
+      "Name": "org.jvnet.jaxb2_commons.jaxb2-basics-runtime"
+    },
+    {
+      "Version": "2.4.3",
+      "Blueprint": "",
+      "State": "ACTIVE",
+      "ID": "70",
+      "Start Level": "80",
+      "Name": "com.fasterxml.jackson.core.jackson-core"
+    },
+    {
+      "Version": "2.4.3",
+      "Blueprint": "",
+      "State": "ACTIVE",
+      "ID": "71",
+      "Start Level": "80",
+      "Name": "com.fasterxml.jackson.core.jackson-annotations"
+    },
+    {
+      "Version": "2.4.3",
+      "Blueprint": "",
+      "State": "ACTIVE",
+      "ID": "72",
+      "Start Level": "80",
+      "Name": "com.fasterxml.jackson.core.jackson-databind"
+    },
+    {
+      "Version": "17.0.0",
+      "Blueprint": "",
+      "State": "ACTIVE",
+      "ID": "73",
+      "Start Level": "80",
+      "Name": "com.google.guava"
+    },
+    {
+      "Version": "2.4.0.201411031534",
+      "Blueprint": "",
+      "State": "ACTIVE",
+      "ID": "74",
+      "Start Level": "80",
+      "Name": "biz.aQute.bndlib"
+    },
+    {
+      "Version": "1.2.0.redhat-133",
+      "Blueprint": "",
+      "State": "ACTIVE",
+      "ID": "75",
+      "Start Level": "80",
+      "Name": "io.fabric8.common-util"
+    },
+    {
+      "Version": "1.2.0.redhat-133",
+      "Blueprint": "",
+      "State": "ACTIVE",
+      "ID": "76",
+      "Start Level": "80",
+      "Name": "io.fabric8.fabric-api"
+    },
+    {
+      "Version": "1.2.0.redhat-133",
+      "Blueprint": "",
+      "State": "ACTIVE",
+      "ID": "77",
+      "Start Level": "80",
+      "Name": "io.fabric8.fabric-core"
+    },
+    {
+      "Version": "1.2.0.redhat-133",
+      "Blueprint": "",
+      "State": "ACTIVE",
+      "ID": "78",
+      "Start Level": "80",
+      "Name": "io.fabric8.fabric-groups"
+    },
+    {
+      "Version": "1.2.0.redhat-133",
+      "Blueprint": "",
+      "State": "ACTIVE",
+      "ID": "79",
+      "Start Level": "80",
+      "Name": "io.fabric8.fabric-git"
+    },
+    {
+      "Version": "1.6.0",
+      "Blueprint": "",
+      "State": "ACTIVE",
+      "ID": "180",
+      "Start Level": "50",
+      "Name": "org.apache.commons.pool"
+    },
+    {
+      "Version": "3.3.0",
+      "Blueprint": "",
+      "State": "ACTIVE",
+      "ID": "181",
+      "Start Level": "50",
+      "Name": "org.apache.commons.net"
+    },
+    {
+      "Version": "3.4.6",
+      "Blueprint": "",
+      "State": "ACTIVE",
+      "ID": "182",
+      "Start Level": "50",
+      "Name": "org.apache.hadoop.zookeeper"
+    },
+    {
+      "Version": "3.18.0",
+      "Blueprint": "",
+      "State": "ACTIVE",
+      "ID": "183",
+      "Start Level": "50",
+      "Name": "org.apache.xbean.spring"
+    },
+    {
+      "Version": "5.11.0.redhat-620133",
+      "Blueprint": "Created",
+      "State": "ACTIVE",
+      "ID": "184",
+      "Start Level": "50",
+      "Name": "org.apache.activemq.activemq-osgi"
+    },
+    {
+      "Version": "5.11.0.redhat-620133",
+      "Blueprint": "Created",
+      "State": "ACTIVE",
+      "ID": "185",
+      "Start Level": "50",
+      "Name": "activemq-karaf"
+    },
+    {
+      "Version": "1.7.0.6",
+      "Blueprint": "",
+      "State": "ACTIVE",
+      "ID": "186",
+      "Start Level": "50",
+      "Name": "org.apache.servicemix.bundles.velocity"
+    },
+    {
+      "Version": "1.9.2.1",
+      "Blueprint": "",
+      "State": "ACTIVE",
+      "ID": "187",
+      "Start Level": "50",
+      "Name": "org.apache.servicemix.bundles.jasypt-spring31"
+    },
+    {
+      "Version": "1.1.4.c",
+      "Blueprint": "",
+      "State": "ACTIVE",
+      "ID": "188",
+      "Start Level": "50",
+      "Name": "org.apache.servicemix.bundles.xpp3"
+    },
+    {
+      "Version": "1.6.2",
+      "Blueprint": "",
+      "State": "ACTIVE",
+      "ID": "189",
+      "Start Level": "50",
+      "Name": "joda-time"
+    },
+    {
+      "Version": "1.2.0.redhat-133",
+      "Blueprint": "",
+      "State": "ACTIVE",
+      "ID": "80",
+      "Start Level": "80",
+      "Name": "io.fabric8.fabric-configadmin"
+    },
+    {
+      "Version": "1.2.0.redhat-133",
+      "Blueprint": "",
+      "State": "ACTIVE",
+      "ID": "81",
+      "Start Level": "80",
+      "Name": "io.fabric8.fabric-agent"
+    },
+    {
+      "Version": "1.2.0.redhat-133",
+      "Blueprint": "",
+      "State": "ACTIVE",
+      "ID": "82",
+      "Start Level": "80",
+      "Name": "io.fabric8.fabric-extender-listener"
+    },
+    {
+      "Version": "1.2.0.redhat-133",
+      "Blueprint": "",
+      "State": "ACTIVE",
+      "ID": "83",
+      "Start Level": "80",
+      "Name": "io.fabric8.fabric-jaas"
+    },
+    {
+      "Version": "1.2.0.redhat-133",
+      "Blueprint": "",
+      "State": "ACTIVE",
+      "ID": "84",
+      "Start Level": "80",
+      "Name": "io.fabric8.fabric-zookeeper"
+    },
+    {
+      "Version": "1.2.0.redhat-133",
+      "Blueprint": "",
+      "State": "ACTIVE",
+      "ID": "85",
+      "Start Level": "80",
+      "Name": "io.fabric8.fabric-features-service"
+    },
+    {
+      "Version": "1.2.0.redhat-133",
+      "Blueprint": "",
+      "State": "ACTIVE",
+      "ID": "86",
+      "Start Level": "80",
+      "Name": "io.fabric8.insight.insight-log"
+    },
+    {
+      "Version": "1.2.0.redhat-133",
+      "Blueprint": "",
+      "State": "ACTIVE",
+      "ID": "87",
+      "Start Level": "80",
+      "Name": "io.fabric8.runtime.fabric-runtime-container-karaf-registration"
+    },
+    {
+      "Version": "2.5.0",
+      "Blueprint": "",
+      "State": "ACTIVE",
+      "ID": "88",
+      "Start Level": "30",
+      "Name": "org.apache.servicemix.specs.activation-api-1.1"
+    },
+    {
+      "Version": "1.0.0",
+      "Blueprint": "",
+      "State": "ACTIVE",
+      "ID": "89",
+      "Start Level": "30",
+      "Name": "org.apache.geronimo.specs.geronimo-servlet_3.0_spec"
+    },
+    {
+      "Version": "1.4.7.1",
+      "Blueprint": "",
+      "State": "ACTIVE",
+      "ID": "190",
+      "Start Level": "50",
+      "Name": "org.apache.servicemix.bundles.xstream"
+    },
+    {
+      "Version": "2.0.0",
+      "Blueprint": "",
+      "State": "ACTIVE",
+      "ID": "191",
+      "Start Level": "50",
+      "Name": "org.apache.geronimo.specs.geronimo-j2ee-connector_1.5_spec"
+    },
+    {
+      "Version": "3.1.4",
+      "Blueprint": "",
+      "State": "ACTIVE",
+      "ID": "192",
+      "Start Level": "50",
+      "Name": "org.apache.activemq.activeio-core"
+    },
+    {
+      "Version": "2.11.0.v20140415-163722-cac6383e66",
+      "Blueprint": "",
+      "State": "ACTIVE",
+      "ID": "193",
+      "Start Level": "50",
+      "Name": "org.scala-lang.scala-library"
+    },
+    {
+      "Version": "3.18.0",
+      "Blueprint": "",
+      "State": "ACTIVE",
+      "ID": "194",
+      "Start Level": "80",
+      "Name": "org.apache.xbean.classloader"
+    },
+    {
+      "Version": "1.2.0.redhat-133",
+      "Blueprint": "",
+      "State": "RESOLVED",
+      "ID": "195",
+      "Start Level": "80",
+      "Name": "io.fabric8.mq.mq-discovery"
+    },
+    {
+      "Version": "1.2.0.redhat-133",
+      "Blueprint": "",
+      "State": "ACTIVE",
+      "ID": "196",
+      "Start Level": "80",
+      "Name": "io.fabric8.mq.mq-fabric"
+    },
+    {
+      "Version": "2.2.6.1",
+      "Blueprint": "",
+      "State": "ACTIVE",
+      "ID": "197",
+      "Start Level": "10",
+      "Name": "org.apache.servicemix.bundles.jaxb-impl"
+    },
+    {
+      "Version": "2.15.1.redhat-620133",
+      "Blueprint": "",
+      "State": "ACTIVE",
+      "ID": "198",
+      "Start Level": "50",
+      "Name": "org.apache.camel.camel-core"
+    },
+    {
+      "Version": "2.15.1.redhat-620133",
+      "Blueprint": "",
+      "State": "ACTIVE",
+      "ID": "199",
+      "Start Level": "50",
+      "Name": "org.apache.camel.camel-catalog"
+    },
+    {
+      "Version": "1.4.7",
+      "Blueprint": "",
+      "State": "ACTIVE",
+      "ID": "90",
+      "Start Level": "30",
+      "Name": "javax.mail"
+    },
+    {
+      "Version": "1.1.1",
+      "Blueprint": "",
+      "State": "ACTIVE",
+      "ID": "91",
+      "Start Level": "30",
+      "Name": "org.apache.geronimo.specs.geronimo-jta_1.1_spec"
+    },
+    {
+      "Version": "1.0.1",
+      "Blueprint": "",
+      "State": "ACTIVE",
+      "ID": "92",
+      "Start Level": "30",
+      "Name": "org.apache.geronimo.specs.geronimo-annotation_1.1_spec"
+    },
+    {
+      "Version": "1.1.0",
+      "Blueprint": "",
+      "State": "ACTIVE",
+      "ID": "93",
+      "Start Level": "30",
+      "Name": "org.apache.geronimo.specs.geronimo-jaspic_1.0_spec"
+    },
+    {
+      "Version": "8.1.17.v20150415",
+      "Blueprint": "",
+      "State": "ACTIVE",
+      "ID": "94",
+      "Start Level": "30",
+      "Name": "org.eclipse.jetty.aggregate.jetty-all-server"
+    },
+    {
+      "Version": "3.18.0",
+      "Blueprint": "",
+      "State": "ACTIVE",
+      "ID": "95",
+      "Start Level": "20",
+      "Name": "org.apache.xbean.bundleutils"
+    },
+    {
+      "Version": "3.18.0",
+      "Blueprint": "",
+      "State": "ACTIVE",
+      "ID": "96",
+      "Start Level": "20",
+      "Name": "org.apache.xbean.reflect"
+    },
+    {
+      "Version": "3.18.0",
+      "Blueprint": "",
+      "State": "ACTIVE",
+      "ID": "97",
+      "Start Level": "20",
+      "Name": "org.apache.xbean.finder"
+    },
+    {
+      "Version": "3.2.3",
+      "Blueprint": "",
+      "State": "ACTIVE",
+      "ID": "98",
+      "Start Level": "30",
+      "Name": "org.ops4j.pax.web.pax-web-api"
+    },
+    {
+      "Version": "3.2.3",
+      "Blueprint": "",
+      "State": "ACTIVE",
+      "ID": "99",
+      "Start Level": "30",
+      "Name": "org.ops4j.pax.web.pax-web-spi"
+    },
+    {
+      "Version": "2.15.1.redhat-620133",
+      "Blueprint": "",
+      "State": "ACTIVE",
+      "ID": "200",
+      "Start Level": "50",
+      "Name": "org.apache.camel.camel-commands-core"
+    },
+    {
+      "Version": "2.15.1.redhat-620133",
+      "Blueprint": "Created",
+      "State": "ACTIVE",
+      "ID": "201",
+      "Start Level": "50",
+      "Name": "org.apache.camel.karaf.camel-karaf-commands"
+    },
+    {
+      "Version": "3.2.12.RELEASE_1",
+      "Blueprint": "",
+      "State": "ACTIVE",
+      "ID": "202",
+      "Start Level": "30",
+      "Name": "org.apache.servicemix.bundles.spring-tx"
+    },
+    {
+      "Version": "2.15.1.redhat-620133",
+      "Blueprint": "",
+      "State": "ACTIVE",
+      "ID": "203",
+      "Start Level": "50",
+      "Name": "org.apache.camel.camel-spring"
+    },
+    {
+      "Version": "2.15.1.redhat-620133",
+      "Blueprint": "Created",
+      "State": "ACTIVE",
+      "ID": "204",
+      "Start Level": "50",
+      "Name": "org.apache.camel.camel-blueprint"
+    },
+    {
+      "Version": "3.0.4.redhat-620133",
+      "Blueprint": "",
+      "State": "ACTIVE",
+      "ID": "205",
+      "Start Level": "40",
+      "Name": "org.apache.cxf.cxf-rt-transports-http-jetty"
+    },
+    {
+      "Version": "2.15.1.redhat-620133",
+      "Blueprint": "Created",
+      "State": "ACTIVE",
+      "ID": "206",
+      "Start Level": "50",
+      "Name": "org.apache.camel.camel-cxf-transport"
+    },
+    {
+      "Version": "2.15.1.redhat-620133",
+      "Blueprint": "Created",
+      "State": "ACTIVE",
+      "ID": "207",
+      "Start Level": "50",
+      "Name": "org.apache.camel.camel-cxf"
+    },
+    {
+      "Version": "3.2.12.RELEASE_1",
+      "Blueprint": "",
+      "State": "ACTIVE",
+      "ID": "208",
+      "Start Level": "30",
+      "Name": "org.apache.servicemix.bundles.spring-jms"
+    },
+    {
+      "Version": "2.15.1.redhat-620133",
+      "Blueprint": "",
+      "State": "ACTIVE",
+      "ID": "209",
+      "Start Level": "50",
+      "Name": "org.apache.camel.camel-jms"
+    },
+    {
+      "Version": "5.11.0.redhat-620133",
+      "Blueprint": "",
+      "State": "ACTIVE",
+      "ID": "210",
+      "Start Level": "80",
+      "Name": "org.apache.activemq.activemq-camel"
+    },
+    {
+      "Version": "1.2.0.redhat-133",
+      "Blueprint": "",
+      "State": "ACTIVE",
+      "ID": "211",
+      "Start Level": "80",
+      "Name": "io.fabric8.mq.camel-amq"
+    },
+    {
+      "Version": "1.1.0",
+      "Blueprint": "",
+      "State": "ACTIVE",
+      "ID": "212",
+      "Start Level": "50",
+      "Name": "org.apache.commons.csv"
+    },
+    {
+      "Version": "2.15.1.redhat-620133",
+      "Blueprint": "",
+      "State": "ACTIVE",
+      "ID": "213",
+      "Start Level": "50",
+      "Name": "org.apache.camel.camel-csv"
+    },
+    {
+      "Version": "2.15.1.redhat-620133",
+      "Blueprint": "",
+      "State": "ACTIVE",
+      "ID": "214",
+      "Start Level": "50",
+      "Name": "org.apache.camel.camel-ftp"
+    },
+    {
+      "Version": "2.15.1.redhat-620133",
+      "Blueprint": "",
+      "State": "ACTIVE",
+      "ID": "215",
+      "Start Level": "50",
+      "Name": "org.apache.camel.camel-bindy"
+    },
+    {
+      "Version": "2.15.1.redhat-620133",
+      "Blueprint": "",
+      "State": "ACTIVE",
+      "ID": "216",
+      "Start Level": "50",
+      "Name": "org.apache.camel.camel-jdbc"
+    },
+    {
+      "Version": "1.3.0",
+      "Blueprint": "",
+      "State": "ACTIVE",
+      "ID": "217",
+      "Start Level": "50",
+      "Name": "org.apache.commons.exec"
+    },
+    {
+      "Version": "2.15.1.redhat-620133",
+      "Blueprint": "",
+      "State": "ACTIVE",
+      "ID": "218",
+      "Start Level": "50",
+      "Name": "org.apache.camel.camel-exec"
+    },
+    {
+      "Version": "2.15.1.redhat-620133",
+      "Blueprint": "",
+      "State": "ACTIVE",
+      "ID": "219",
+      "Start Level": "50",
+      "Name": "org.apache.camel.camel-jasypt"
+    },
+    {
+      "Version": "9.5.1.5_1",
+      "Blueprint": "",
+      "State": "ACTIVE",
+      "ID": "220",
+      "Start Level": "50",
+      "Name": "org.apache.servicemix.bundles.saxon"
+    },
+    {
+      "Version": "3.2.3",
+      "Blueprint": "",
+      "State": "ACTIVE",
+      "ID": "100",
+      "Start Level": "30",
+      "Name": "org.ops4j.pax.web.pax-web-runtime"
+    },
+    {
+      "Version": "2.15.1.redhat-620133",
+      "Blueprint": "",
+      "State": "ACTIVE",
+      "ID": "221",
+      "Start Level": "50",
+      "Name": "org.apache.camel.camel-saxon"
+    },
+    {
+      "Version": "3.2.3",
+      "Blueprint": "",
+      "State": "ACTIVE",
+      "ID": "101",
+      "Start Level": "30",
+      "Name": "org.ops4j.pax.web.pax-web-jetty"
+    },
+    {
+      "Version": "2.3.3.1",
+      "Blueprint": "",
+      "State": "ACTIVE",
+      "ID": "222",
+      "Start Level": "50",
+      "Name": "org.apache.servicemix.bundles.snmp4j"
+    },
+    {
+      "Version": "1.2.0.redhat-133",
+      "Blueprint": "",
+      "State": "ACTIVE",
+      "ID": "102",
+      "Start Level": "80",
+      "Name": "io.fabric8.fabric-git-server"
+    },
+    {
+      "Version": "2.15.1.redhat-620133",
+      "Blueprint": "",
+      "State": "ACTIVE",
+      "ID": "223",
+      "Start Level": "50",
+      "Name": "org.apache.camel.camel-snmp"
+    },
+    {
+      "Version": "1.2.0.redhat-133",
+      "Blueprint": "",
+      "State": "ACTIVE",
+      "ID": "103",
+      "Start Level": "80",
+      "Name": "io.fabric8.fabric-boot-commands"
+    },
+    {
+      "Version": "3.0.8.1",
+      "Blueprint": "",
+      "State": "ACTIVE",
+      "ID": "224",
+      "Start Level": "50",
+      "Name": "org.apache.servicemix.bundles.ognl"
+    },
+    {
+      "Version": "1.2.0.redhat-133",
+      "Blueprint": "",
+      "State": "ACTIVE",
+      "ID": "104",
+      "Start Level": "80",
+      "Name": "io.fabric8.fabric-redirect"
+    },
+    {
+      "Version": "2.15.1.redhat-620133",
+      "Blueprint": "",
+      "State": "ACTIVE",
+      "ID": "225",
+      "Start Level": "50",
+      "Name": "org.apache.camel.camel-ognl"
+    },
+    {
+      "Version": "1.1.0",
+      "Blueprint": "",
+      "State": "ACTIVE",
+      "ID": "105",
+      "Start Level": "9",
+      "Name": "org.apache.geronimo.specs.geronimo-osgi-registry"
+    },
+    {
+      "Version": "2.15.1.redhat-620133",
+      "Blueprint": "",
+      "State": "ACTIVE",
+      "ID": "226",
+      "Start Level": "50",
+      "Name": "org.apache.camel.camel-routebox"
+    },
+    {
+      "Version": "2.5.0",
+      "Blueprint": "",
+      "State": "ACTIVE",
+      "ID": "106",
+      "Start Level": "10",
+      "Name": "org.apache.servicemix.specs.stax-api-1.0"
+    },
+    {
+      "Version": "3.4.0.1",
+      "Blueprint": "",
+      "State": "ACTIVE",
+      "ID": "227",
+      "Start Level": "50",
+      "Name": "org.apache.servicemix.bundles.antlr"
+    },
+    {
+      "Version": "2.5.0",
+      "Blueprint": "",
+      "State": "ACTIVE",
+      "ID": "107",
+      "Start Level": "10",
+      "Name": "org.apache.servicemix.specs.jaxb-api-2.2"
+    },
+    {
+      "Version": "1.0.0.7R2_3",
+      "Blueprint": "",
+      "State": "ACTIVE",
+      "ID": "228",
+      "Start Level": "50",
+      "Name": "org.apache.servicemix.bundles.rhino"
+    },
+    {
+      "Version": "2.5.0",
+      "Blueprint": "",
+      "State": "ACTIVE",
+      "ID": "108",
+      "Start Level": "10",
+      "Name": "org.apache.servicemix.specs.jaxws-api-2.2"
+    },
+    {
+      "Version": "2.4.3",
+      "Blueprint": "",
+      "State": "ACTIVE",
+      "ID": "229",
+      "Start Level": "50",
+      "Name": "groovy-all"
+    },
+    {
+      "Version": "2.5.0",
+      "Blueprint": "",
+      "State": "ACTIVE",
+      "ID": "109",
+      "Start Level": "10",
+      "Name": "org.apache.servicemix.specs.saaj-api-1.3"
+    }
+  ],
+  "flag": true,
+  "message": null
+}
+
+5>	To get the bundle detail
+URL: http://localhost:8080/StatisticsApi/bundle/getBundleInfo/230
+Where 230 is ID in the response of the 4th request
+RequestType: GET
+Response:
+{
+  "registeredServices": [],
+  "bundleHeader": [
+    {
+      "Value": "http://www.gnu.org/licenses/gpl-3.0-standalone.html, http://www.gnu.org/licenses/lgpl-3.0-standalone.html, http://www.eclipse.org/legal/epl-v10.html",
+      "Key": "Bundle-License"
+    },
+    {
+      "Value": "true",
+      "Key": "Embed-Transitive"
+    },
+    {
+      "Value": "Apache Maven Bundle Plugin",
+      "Key": "Created-By"
+    },
+    {
+      "Value": "1.0",
+      "Key": "Manifest-Version"
+    },
+    {
+      "Value": "1428594345836",
+      "Key": "Bnd-LastModified"
+    },
+    {
+      "Value": "JRuby 1.7.18.redhat-001",
+      "Key": "Bundle-Name"
+    },
+    {
+      "Value": "1.7.0_75",
+      "Key": "Build-Jdk"
+    },
+    {
+      "Value": "JRuby 1.7.18.redhat-001 OSGi bundle",
+      "Key": "Bundle-Description"
+    },
+    {
+      "Value": "javax.*",
+      "Key": "DynamicImport-Package"
+    },
+    {
+      "Value": "http://jruby.org",
+      "Key": "Bundle-DocURL"
+    },
+    {
+      "Value": "JRuby",
+      "Key": "Bundle-Vendor"
+    },
+    {
+      "Value": "javax.annotation.processing;resolution:=optional,javax.lang.model;resolution:=optional,javax.lang.model.element;resolution:=optional,javax.lang.model.type;resolution:=optional,javax.lang.model.util;resolution:=optional,javax.management;resolution:=optional,javax.script;resolution:=optional,javax.swing;resolution:=optional,org.apache.bsf;resolution:=optional,org.apache.bsf.util;resolution:=optional,org.apache.tools.ant;resolution:=optional,org.joda.convert;resolution:=optional,org.objectweb.asm;resolution:=optional,org.osgi.framework;resolution:=optional,org.osgi.framework.wiring;resolution:=optional,sun.management;resolution:=optional,sun.misc;resolution:=optional,sun.nio.cs;resolution:=optional",
+      "Key": "Import-Package"
+    },
+    {
+      "Value": "org.jruby;version=\"1.7.18.redhat-001\";uses:=\"org.jruby.anno,org.jruby.ast,org.jruby.ast.executable,org.jruby.ast.visitor,org.jruby.common,org.jruby.compiler,org.jruby.embed,org.jruby.exceptions,org.jruby.ext.coverage,org.jruby.ext.ffi,org.jruby.internal.runtime,org.jruby.internal.runtime.methods,org.jruby.ir,org.jruby.javasupport,org.jruby.javasupport.proxy,org.jruby.lexer.yacc,org.jruby.management,org.jruby.parser,org.jruby.runtime,org.jruby.runtime.backtrace,org.jruby.runtime.builtin,org.jruby.runtime.callback,org.jruby.runtime.callsite,org.jruby.runtime.encoding,org.jruby.runtime.invokedynamic,org.jruby.runtime.ivars,org.jruby.runtime.load,org.jruby.runtime.marshal,org.jruby.runtime.opto,org.jruby.runtime.profile,org.jruby.runtime.profile.builtin,org.jruby.util,org.jruby.util.encoding,org.jruby.util.func,org.jruby.util.io\",org.jruby.anno;version=\"1.7.18.redhat-001\";uses:=\"javax.annotation.processing,javax.lang.model,javax.lang.model.element,org.jruby,org.jruby.internal.runtime.methods,org.jruby.runtime\",org.jruby.ant;version=\"1.7.18.redhat-001\";uses:=\"org.apache.tools.ant\",org.jruby.ast;version=\"1.7.18.redhat-001\";uses:=\"org.jruby,org.jruby.ast.types,org.jruby.ast.visitor,org.jruby.lexer.yacc,org.jruby.parser,org.jruby.runtime,org.jruby.runtime.builtin,org.jruby.runtime.opto,org.jruby.util\",org.jruby.ast.executable;version=\"1.7.18.redhat-001\";uses:=\"org.jruby,org.jruby.internal.runtime.methods,org.jruby.parser,org.jruby.runtime,org.jruby.runtime.builtin,org.jruby.runtime.callsite,org.jruby.runtime.ivars,org.jruby.runtime.opto,org.jruby.util\",org.jruby.ast.java_signature;version=\"1.7.18.redhat-001\",org.jruby.ast.types;version=\"1.7.18.redhat-001\";uses:=\"org.jruby,org.jruby.runtime,org.jruby.runtime.builtin\",org.jruby.ast.util;version=\"1.7.18.redhat-001\";uses:=\"org.jruby,org.jruby.ast,org.jruby.runtime.builtin\",org.jruby.ast.visitor;version=\"1.7.18.redhat-001\";uses:=\"org.jruby.ast\",org.jruby.cext;version=\"1.7.18.redhat-001\";uses:=\"org.jruby,org.jruby.internal.runtime.methods,org.jruby.runtime,org.jruby.runtime.builtin\",org.jruby.common;version=\"1.7.18.redhat-001\";uses:=\"org.jruby,org.jruby.lexer.yacc\",org.jruby.compiler;version=\"1.7.18.redhat-001\";uses:=\"org.jruby,org.jruby.ast,org.jruby.compiler.impl,org.jruby.internal.runtime.methods,org.jruby.lexer.yacc,org.jruby.org.objectweb.asm,org.jruby.parser,org.jruby.runtime,org.jruby.runtime.builtin,org.jruby.util\",org.jruby.compiler.impl;version=\"1.7.18.redhat-001\";uses:=\"org.jruby.ast,org.jruby.compiler,org.jruby.internal.runtime.methods,org.jruby.lexer.yacc,org.jruby.org.objectweb.asm,org.jruby.parser,org.jruby.runtime,org.jruby.util\",org.jruby.compiler.util;version=\"1.7.18.redhat-001\";uses:=\"org.jruby.compiler.impl,org.jruby.org.objectweb.asm,org.jruby.util\",org.jruby.demo.ext;version=\"1.7.18.redhat-001\";uses:=\"org.jruby,org.jruby.anno,org.jruby.internal.runtime.methods,org.jruby.runtime,org.jruby.runtime.builtin\",org.jruby.embed;version=\"1.7.18.redhat-001\";uses:=\"org.jruby,org.jruby.ast,org.jruby.embed.internal,org.jruby.javasupport,org.jruby.runtime,org.jruby.runtime.profile.builtin,org.jruby.runtime.scope,org.jruby.util,org.osgi.framework\",org.jruby.embed.bsf;version=\"1.7.18.redhat-001\";uses:=\"org.apache.bsf,org.apache.bsf.util\",org.jruby.embed.internal;version=\"1.7.18.redhat-001\";uses:=\"org.jruby,org.jruby.ast,org.jruby.ast.executable,org.jruby.embed,org.jruby.embed.variable,org.jruby.javasupport,org.jruby.runtime,org.jruby.runtime.builtin,org.jruby.runtime.scope,org.jruby.util\",org.jruby.embed.io;version=\"1.7.18.redhat-001\",org.jruby.embed.jsr223;version=\"1.7.18.redhat-001\";uses:=\"javax.script\",org.jruby.embed.osgi;version=\"1.7.18.redhat-001\";uses:=\"org.jruby.embed,org.jruby.embed.osgi.internal,org.osgi.framework\",org.jruby.embed.osgi.internal;version=\"1.7.18.redhat-001\";uses:=\"org.jruby,org.jruby.runtime.load,org.osgi.framework\",org.jruby.embed.osgi.utils;version=\"1.7.18.redhat-001\";uses:=\"org.osgi.framework\",org.jruby.embed.util;version=\"1.7.18.redhat-001\";uses:=\"org.jruby.embed\",org.jruby.embed.variable;version=\"1.7.18.redhat-001\";uses:=\"org.jruby,org.jruby.embed,org.jruby.embed.internal,org.jruby.runtime.builtin,org.jruby.runtime.scope\",org.jruby.environment;version=\"1.7.18.redhat-001\";uses:=\"org.jruby.util\",org.jruby.evaluator;version=\"1.7.18.redhat-001\";uses:=\"org.jruby,org.jruby.ast,org.jruby.parser,org.jruby.runtime,org.jruby.runtime.builtin\",org.jruby.exceptions;version=\"1.7.18.redhat-001\";uses:=\"org.jruby,org.jruby.runtime.backtrace,org.jruby.runtime.builtin\",org.jruby.ext;version=\"1.7.18.redhat-001\";uses:=\"org.jruby,org.jruby.runtime.load\",org.jruby.ext.bigdecimal;version=\"1.7.18.redhat-001\";uses:=\"org.jruby,org.jruby.anno,org.jruby.internal.runtime.methods,org.jruby.runtime,org.jruby.runtime.builtin,org.jruby.runtime.load\",org.jruby.ext.coverage;version=\"1.7.18.redhat-001\";uses:=\"org.jruby,org.jruby.anno,org.jruby.internal.runtime.methods,org.jruby.runtime,org.jruby.runtime.builtin,org.jruby.runtime.load\",org.jruby.ext.delegate;version=\"1.7.18.redhat-001\";uses:=\"org.jruby,org.jruby.anno,org.jruby.internal.runtime.methods,org.jruby.runtime,org.jruby.runtime.builtin,org.jruby.runtime.load\",org.jruby.ext.digest;version=\"1.7.18.redhat-001\";uses:=\"org.jruby,org.jruby.anno,org.jruby.internal.runtime.methods,org.jruby.runtime,org.jruby.runtime.builtin,org.jruby.runtime.load\",org.jruby.ext.enumerator;version=\"1.7.18.redhat-001\";uses:=\"org.jruby,org.jruby.runtime.load\",org.jruby.ext.etc;version=\"1.7.18.redhat-001\";uses:=\"org.jruby,org.jruby.anno,org.jruby.internal.runtime.methods,org.jruby.runtime,org.jruby.runtime.builtin,org.jruby.runtime.load\",org.jruby.ext.fcntl;version=\"1.7.18.redhat-001\";uses:=\"org.jruby,org.jruby.runtime.load\",org.jruby.ext.ffi;version=\"1.7.18.redhat-001\";uses:=\"org.jruby,org.jruby.anno,org.jruby.exceptions,org.jruby.internal.runtime.methods,org.jruby.runtime,org.jruby.runtime.builtin,org.jruby.runtime.load\",org.jruby.ext.ffi.io;version=\"1.7.18.redhat-001\";uses:=\"org.jruby,org.jruby.anno,org.jruby.internal.runtime.methods,org.jruby.runtime,org.jruby.runtime.builtin\",org.jruby.ext.ffi.jffi;version=\"1.7.18.redhat-001\";uses:=\"org.jruby,org.jruby.anno,org.jruby.ext.ffi,org.jruby.internal.runtime.methods,org.jruby.runtime,org.jruby.runtime.builtin,org.jruby.runtime.callsite,org.jruby.runtime.invokedynamic\",org.jruby.ext.fiber;version=\"1.7.18.redhat-001\";uses:=\"org.jruby,org.jruby.anno,org.jruby.internal.runtime.methods,org.jruby.runtime,org.jruby.runtime.builtin,org.jruby.runtime.load\",org.jruby.ext.iconv;version=\"1.7.18.redhat-001\";uses:=\"org.jruby,org.jruby.anno,org.jruby.internal.runtime.methods,org.jruby.runtime,org.jruby.runtime.builtin,org.jruby.runtime.load\",org.jruby.ext.io.try_nonblock;version=\"1.7.18.redhat-001\";uses:=\"org.jruby,org.jruby.anno,org.jruby.internal.runtime.methods,org.jruby.runtime,org.jruby.runtime.builtin,org.jruby.runtime.load\",org.jruby.ext.io.wait;version=\"1.7.18.redhat-001\";uses:=\"org.jruby,org.jruby.anno,org.jruby.internal.runtime.methods,org.jruby.runtime,org.jruby.runtime.builtin,org.jruby.runtime.load\",org.jruby.ext.jruby;version=\"1.7.18.redhat-001\";uses:=\"org.jruby,org.jruby.anno,org.jruby.internal.runtime.methods,org.jruby.runtime,org.jruby.runtime.builtin,org.jruby.runtime.load\",org.jruby.ext.mathn;version=\"1.7.18.redhat-001\";uses:=\"org.jruby,org.jruby.runtime.load\",org.jruby.ext.net.protocol;version=\"1.7.18.redhat-001\";uses:=\"org.jruby,org.jruby.anno,org.jruby.internal.runtime.methods,org.jruby.runtime,org.jruby.runtime.builtin,org.jruby.runtime.load\",org.jruby.ext.nkf;version=\"1.7.18.redhat-001\";uses:=\"org.jruby,org.jruby.anno,org.jruby.internal.runtime.methods,org.jruby.runtime,org.jruby.runtime.builtin,org.jruby.runtime.load\",org.jruby.ext.pathname;version=\"1.7.18.redhat-001\";uses:=\"org.jruby,org.jruby.anno,org.jruby.internal.runtime.methods,org.jruby.runtime,org.jruby.runtime.builtin,org.jruby.runtime.load\",org.jruby.ext.psych;version=\"1.7.18.redhat-001\";uses:=\"org.jruby,org.jruby.anno,org.jruby.internal.runtime.methods,org.jruby.runtime,org.jruby.runtime.builtin,org.jruby.runtime.load\",org.jruby.ext.rbconfig;version=\"1.7.18.redhat-001\";uses:=\"org.jruby,org.jruby.anno,org.jruby.internal.runtime.methods,org.jruby.runtime,org.jruby.runtime.builtin,org.jruby.runtime.load\",org.jruby.ext.securerandom;version=\"1.7.18.redhat-001\";uses:=\"org.jruby,org.jruby.anno,org.jruby.internal.runtime.methods,org.jruby.runtime,org.jruby.runtime.builtin\",org.jruby.ext.socket;version=\"1.7.18.redhat-001\";uses:=\"org.jruby,org.jruby.anno,org.jruby.internal.runtime.methods,org.jruby.runtime,org.jruby.runtime.builtin,org.jruby.runtime.load,org.jruby.util,org.jruby.util.io\",org.jruby.ext.stringio;version=\"1.7.18.redhat-001\";uses:=\"org.jruby,org.jruby.anno,org.jruby.internal.runtime.methods,org.jruby.runtime,org.jruby.runtime.builtin,org.jruby.runtime.encoding,org.jruby.runtime.load,org.jruby.util\",org.jruby.ext.strscan;version=\"1.7.18.redhat-001\";uses:=\"org.jruby,org.jruby.anno,org.jruby.internal.runtime.methods,org.jruby.runtime,org.jruby.runtime.builtin,org.jruby.runtime.load\",org.jruby.ext.tempfile;version=\"1.7.18.redhat-001\";uses:=\"org.jruby,org.jruby.anno,org.jruby.internal.runtime.methods,org.jruby.runtime,org.jruby.runtime.builtin,org.jruby.runtime.load\",org.jruby.ext.thread;version=\"1.7.18.redhat-001\";uses:=\"org.jruby,org.jruby.anno,org.jruby.internal.runtime.methods,org.jruby.runtime,org.jruby.runtime.builtin,org.jruby.runtime.load\",org.jruby.ext.timeout;version=\"1.7.18.redhat-001\";uses:=\"org.jruby,org.jruby.anno,org.jruby.internal.runtime.methods,org.jruby.runtime,org.jruby.runtime.builtin,org.jruby.runtime.load\",org.jruby.ext.tracepoint;version=\"1.7.18.redhat-001\";uses:=\"org.jruby,org.jruby.anno,org.jruby.internal.runtime.methods,org.jruby.runtime,org.jruby.runtime.builtin\",org.jruby.ext.weakref;version=\"1.7.18.redhat-001\";uses:=\"org.jruby,org.jruby.anno,org.jruby.internal.runtime.methods,org.jruby.runtime,org.jruby.runtime.builtin,org.jruby.runtime.load\",org.jruby.ext.zlib;version=\"1.7.18.redhat-001\";uses:=\"org.jruby,org.jruby.anno,org.jruby.internal.runtime.methods,org.jruby.runtime,org.jruby.runtime.builtin,org.jruby.runtime.load,org.jruby.util,org.jruby.util.encoding,org.jruby.util.io\",org.jruby.gen;version=\"1.7.18.redhat-001\";uses:=\"org.jruby,org.jruby.anno\",org.jruby.internal.runtime;version=\"1.7.18.redhat-001\";uses:=\"org.jruby,org.jruby.runtime,org.jruby.runtime.builtin,org.jruby.runtime.opto\",org.jruby.internal.runtime.methods;version=\"1.7.18.redhat-001\";uses:=\"org.jruby,org.jruby.anno,org.jruby.ast,org.jruby.ast.executable,org.jruby.exceptions,org.jruby.ir,org.jruby.lexer.yacc,org.jruby.org.objectweb.asm,org.jruby.parser,org.jruby.runtime,org.jruby.runtime.builtin,org.jruby.runtime.callback,org.jruby.runtime.ivars,org.jruby.util\",org.jruby.ir;version=\"1.7.18.redhat-001\";uses:=\"org.jruby,org.jruby.ast,org.jruby.ir.dataflow,org.jruby.ir.instructions,org.jruby.ir.instructions.defined,org.jruby.ir.instructions.ruby19,org.jruby.ir.listeners,org.jruby.ir.operands,org.jruby.ir.passes,org.jruby.ir.representations,org.jruby.ir.transformations.inlining,org.jruby.parser,org.jruby.runtime,org.jruby.runtime.builtin\",org.jruby.ir.dataflow;version=\"1.7.18.redhat-001\";uses:=\"org.jruby.ir,org.jruby.ir.instructions,org.jruby.ir.operands,org.jruby.ir.representations,org.jruby.ir.util\",org.jruby.ir.dataflow.analyses;version=\"1.7.18.redhat-001\";uses:=\"org.jruby.ir,org.jruby.ir.dataflow,org.jruby.ir.instructions,org.jruby.ir.operands,org.jruby.ir.representations,org.jruby.ir.util\",org.jruby.ir.instructions;version=\"1.7.18.redhat-001\";uses:=\"org.jruby,org.jruby.internal.runtime.methods,org.jruby.ir,org.jruby.ir.operands,org.jruby.ir.transformations.inlining,org.jruby.runtime,org.jruby.runtime.builtin,org.jruby.runtime.ivars\",org.jruby.ir.instructions.calladapter;version=\"1.7.18.redhat-001\";uses:=\"org.jruby.ir.operands,org.jruby.runtime,org.jruby.runtime.builtin\",org.jruby.ir.instructions.defined;version=\"1.7.18.redhat-001\";uses:=\"org.jruby.ir,org.jruby.ir.instructions,org.jruby.ir.operands,org.jruby.ir.transformations.inlining,org.jruby.runtime,org.jruby.runtime.builtin\",org.jruby.ir.instructions.ruby19;version=\"1.7.18.redhat-001\";uses:=\"org.jruby.ir,org.jruby.ir.instructions,org.jruby.ir.operands,org.jruby.ir.transformations.inlining,org.jruby.lexer.yacc,org.jruby.runtime,org.jruby.runtime.builtin\",org.jruby.ir.instructions.ruby20;version=\"1.7.18.redhat-001\";uses:=\"org.jruby.ir.instructions,org.jruby.ir.operands,org.jruby.runtime,org.jruby.runtime.builtin\",org.jruby.ir.instructions.specialized;version=\"1.7.18.redhat-001\";uses:=\"org.jruby.ir.instructions,org.jruby.ir.operands,org.jruby.runtime,org.jruby.runtime.builtin\",org.jruby.ir.interpreter;version=\"1.7.18.redhat-001\";uses:=\"org.jruby,org.jruby.ast,org.jruby.internal.runtime.methods,org.jruby.ir,org.jruby.runtime,org.jruby.runtime.builtin\",org.jruby.ir.listeners;version=\"1.7.18.redhat-001\";uses:=\"org.jruby.ast,org.jruby.ir,org.jruby.ir.instructions,org.jruby.ir.operands\",org.jruby.ir.operands;version=\"1.7.18.redhat-001\";uses:=\"org.jruby,org.jruby.internal.runtime.methods,org.jruby.ir,org.jruby.ir.transformations.inlining,org.jruby.runtime,org.jruby.runtime.builtin,org.jruby.util\",org.jruby.ir.passes;version=\"1.7.18.redhat-001\";uses:=\"org.jruby.ir,org.jruby.ir.instructions,org.jruby.ir.representations\",org.jruby.ir.representations;version=\"1.7.18.redhat-001\";uses:=\"org.jruby.ir,org.jruby.ir.instructions,org.jruby.ir.operands,org.jruby.ir.transformations.inlining,org.jruby.ir.util\",org.jruby.ir.runtime;version=\"1.7.18.redhat-001\";uses:=\"org.jruby.exceptions,org.jruby.ir,org.jruby.runtime,org.jruby.runtime.builtin\",org.jruby.ir.targets;version=\"1.7.18.redhat-001\";uses:=\"org.jruby,org.jruby.compiler.impl,org.jruby.ir,org.jruby.ir.instructions,org.jruby.ir.instructions.defined,org.jruby.ir.instructions.ruby19,org.jruby.ir.operands,org.jruby.org.objectweb.asm,org.jruby.org.objectweb.asm.commons,org.jruby.parser,org.jruby.runtime,org.jruby.runtime.builtin,org.jruby.runtime.invokedynamic,org.jruby.util\",org.jruby.ir.transformations.inlining;version=\"1.7.18.redhat-001\";uses:=\"org.jruby,org.jruby.ir,org.jruby.ir.instructions,org.jruby.ir.operands,org.jruby.ir.representations,org.jruby.runtime\",org.jruby.ir.util;version=\"1.7.18.redhat-001\",org.jruby.java.addons;version=\"1.7.18.redhat-001\";uses:=\"org.jruby,org.jruby.anno,org.jruby.internal.runtime.methods,org.jruby.javasupport,org.jruby.runtime,org.jruby.runtime.builtin\",org.jruby.java.codegen;version=\"1.7.18.redhat-001\";uses:=\"org.jruby,org.jruby.compiler.impl,org.jruby.runtime.builtin,org.jruby.runtime.callsite,org.jruby.util\",org.jruby.java.dispatch;version=\"1.7.18.redhat-001\";uses:=\"org.jruby,org.jruby.exceptions,org.jruby.javasupport,org.jruby.runtime.builtin\",org.jruby.java.invokers;version=\"1.7.18.redhat-001\";uses:=\"org.jruby,org.jruby.internal.runtime.methods,org.jruby.javasupport,org.jruby.runtime,org.jruby.runtime.builtin\",org.jruby.java.proxies;version=\"1.7.18.redhat-001\";uses:=\"org.jruby,org.jruby.anno,org.jruby.internal.runtime.methods,org.jruby.javasupport,org.jruby.runtime,org.jruby.runtime.builtin\",org.jruby.java.util;version=\"1.7.18.redhat-001\";uses:=\"org.jruby,org.jruby.internal.runtime.methods,org.jruby.java.proxies,org.jruby.javasupport,org.jruby.runtime,org.jruby.runtime.builtin\",org.jruby.javasupport;version=\"1.7.18.redhat-001\";uses:=\"org.jruby,org.jruby.anno,org.jruby.ast,org.jruby.exceptions,org.jruby.internal.runtime.methods,org.jruby.java.proxies,org.jruby.javasupport.proxy,org.jruby.javasupport.util,org.jruby.runtime,org.jruby.runtime.builtin,org.jruby.runtime.load,org.jruby.util\",org.jruby.javasupport.bsf;version=\"1.7.18.redhat-001\";uses:=\"org.apache.bsf,org.apache.bsf.util\",org.jruby.javasupport.proxy;version=\"1.7.18.redhat-001\";uses:=\"org.jruby,org.jruby.anno,org.jruby.internal.runtime.methods,org.jruby.javasupport,org.jruby.runtime,org.jruby.runtime.builtin\",org.jruby.javasupport.util;version=\"1.7.18.redhat-001\";uses:=\"org.jruby.runtime\",org.jruby.lexer;version=\"1.7.18.redhat-001\";uses:=\"org.jruby.util\",org.jruby.lexer.yacc;version=\"1.7.18.redhat-001\";uses:=\"org.jruby.ast,org.jruby.common,org.jruby.parser,org.jruby.runtime,org.jruby.util\",org.jruby.main;version=\"1.7.18.redhat-001\";uses:=\"org.jruby\",org.jruby.management;version=\"1.7.18.redhat-001\";uses:=\"org.jruby,org.jruby.compiler,org.jruby.runtime.backtrace\",org.jruby.org.objectweb.asm;version=\"1.7.18.redhat-001\",org.jruby.org.objectweb.asm.commons;version=\"1.7.18.redhat-001\";uses:=\"org.jruby.org.objectweb.asm,org.jruby.org.objectweb.asm.signature,org.jruby.org.objectweb.asm.tree\",org.jruby.org.objectweb.asm.signature;version=\"1.7.18.redhat-001\",org.jruby.org.objectweb.asm.tree;version=\"1.7.18.redhat-001\";uses:=\"org.jruby.org.objectweb.asm\",org.jruby.org.objectweb.asm.tree.analysis;version=\"1.7.18.redhat-001\";uses:=\"org.jruby.org.objectweb.asm,org.jruby.org.objectweb.asm.tree\",org.jruby.org.objectweb.asm.util;version=\"1.7.18.redhat-001\";uses:=\"org.jruby.org.objectweb.asm,org.jruby.org.objectweb.asm.signature\",org.jruby.parser;version=\"1.7.18.redhat-001\";uses:=\"org.jruby,org.jruby.ast,org.jruby.ast.java_signature,org.jruby.common,org.jruby.ir,org.jruby.lexer,org.jruby.lexer.yacc,org.jruby.runtime,org.jruby.runtime.builtin,org.jruby.runtime.encoding,org.jruby.util\",org.jruby.platform;version=\"1.7.18.redhat-001\",org.jruby.runtime;version=\"1.7.18.redhat-001\";uses:=\"org.jruby,org.jruby.anno,org.jruby.ast,org.jruby.ast.executable,org.jruby.compiler,org.jruby.exceptions,org.jruby.ext.fiber,org.jruby.internal.runtime.methods,org.jruby.ir,org.jruby.lexer.yacc,org.jruby.parser,org.jruby.runtime.assigner,org.jruby.runtime.backtrace,org.jruby.runtime.builtin,org.jruby.runtime.callback,org.jruby.runtime.invokedynamic,org.jruby.runtime.marshal,org.jruby.runtime.profile,org.jruby.util\",org.jruby.runtime.assigner;version=\"1.7.18.redhat-001\";uses:=\"org.jruby,org.jruby.ast,org.jruby.runtime,org.jruby.runtime.builtin\",org.jruby.runtime.backtrace;version=\"1.7.18.redhat-001\";uses:=\"org.jruby,org.jruby.lexer.yacc,org.jruby.runtime,org.jruby.runtime.builtin\",org.jruby.runtime.builtin;version=\"1.7.18.redhat-001\";uses:=\"org.jruby,org.jruby.runtime\",org.jruby.runtime.callback;version=\"1.7.18.redhat-001\";uses:=\"org.jruby.runtime,org.jruby.runtime.builtin\",org.jruby.runtime.callsite;version=\"1.7.18.redhat-001\";uses:=\"org.jruby,org.jruby.exceptions,org.jruby.internal.runtime.methods,org.jruby.runtime,org.jruby.runtime.builtin\",org.jruby.runtime.component;version=\"1.7.18.redhat-001\";uses:=\"org.jruby.runtime.builtin\",org.jruby.runtime.encoding;version=\"1.7.18.redhat-001\";uses:=\"org.jruby,org.jruby.runtime.builtin,org.jruby.util\",org.jruby.runtime.invokedynamic;version=\"1.7.18.redhat-001\";uses:=\"org.jruby,org.jruby.ast.executable,org.jruby.exceptions,org.jruby.internal.runtime,org.jruby.internal.runtime.methods,org.jruby.org.objectweb.asm,org.jruby.parser,org.jruby.runtime,org.jruby.runtime.builtin,org.jruby.runtime.callsite,org.jruby.util\",org.jruby.runtime.ivars;version=\"1.7.18.redhat-001\";uses:=\"org.jruby,org.jruby.runtime.builtin\",org.jruby.runtime.load;version=\"1.7.18.redhat-001\";uses:=\"org.jruby,org.jruby.ast.executable,org.jruby.exceptions,org.jruby.runtime.builtin,org.jruby.util,org.jruby.util.collections\",org.jruby.runtime.marshal;version=\"1.7.18.redhat-001\";uses:=\"org.jruby,org.jruby.internal.runtime.methods,org.jruby.runtime.builtin,org.jruby.util\",org.jruby.runtime.opto;version=\"1.7.18.redhat-001\";uses:=\"org.jruby,org.jruby.compiler,org.jruby.compiler.impl,org.jruby.runtime.builtin\",org.jruby.runtime.profile;version=\"1.7.18.redhat-001\";uses:=\"org.jruby,org.jruby.internal.runtime.methods,org.jruby.runtime\",org.jruby.runtime.profile.builtin;version=\"1.7.18.redhat-001\";uses:=\"org.jruby,org.jruby.internal.runtime.methods,org.jruby.runtime,org.jruby.runtime.profile,org.jruby.util.collections\",org.jruby.runtime.scope;version=\"1.7.18.redhat-001\";uses:=\"org.jruby.ir,org.jruby.parser,org.jruby.runtime,org.jruby.runtime.builtin\",org.jruby.threading;version=\"1.7.18.redhat-001\",org.jruby.util;version=\"1.7.18.redhat-001\";uses:=\"javax.lang.model.element,org.jruby,org.jruby.ast.executable,org.jruby.exceptions,org.jruby.org.objectweb.asm,org.jruby.runtime,org.jruby.runtime.builtin,org.jruby.runtime.invokedynamic,org.jruby.util.io\",org.jruby.util.cli;version=\"1.7.18.redhat-001\";uses:=\"org.jruby,org.jruby.util\",org.jruby.util.collections;version=\"1.7.18.redhat-001\";uses:=\"org.jruby,org.jruby.runtime,org.jruby.runtime.builtin\",org.jruby.util.encoding;version=\"1.7.18.redhat-001\";uses:=\"org.jruby,org.jruby.exceptions,org.jruby.runtime,org.jruby.runtime.builtin,org.jruby.util\",org.jruby.util.func;version=\"1.7.18.redhat-001\",org.jruby.util.io;version=\"1.7.18.redhat-001\";uses:=\"org.jruby,org.jruby.exceptions,org.jruby.runtime,org.jruby.runtime.builtin,org.jruby.util,org.jruby.util.encoding\",org.jruby.util.log;version=\"1.7.18.redhat-001\",org.jruby.util.unsafe;version=\"1.7.18.redhat-001\";uses:=\"sun.misc\"",
+      "Key": "Export-Package"
+    },
+    {
+      "Value": "*;type=jar;scope=provided;inline=true",
+      "Key": "Embed-Dependency"
+    },
+    {
+      "Value": "2",
+      "Key": "Bundle-ManifestVersion"
+    },
+    {
+      "Value": "org.jruby.jruby",
+      "Key": "Bundle-SymbolicName"
+    },
+    {
+      "Value": "1.7.18.redhat-001",
+      "Key": "Bundle-Version"
+    },
+    {
+      "Value": "mockbuild",
+      "Key": "Built-By"
+    },
+    {
+      "Value": "org.jruby.Main",
+      "Key": "Main-Class"
+    },
+    {
+      "Value": "Bnd-2.1.0.20130426-122213",
+      "Key": "Tool"
+    }
+  ],
+  "symbolicName": "org.jruby.jruby",
+  "exportedPackages": [
+    "org.jruby.embed.variable;1.7.18.redhat-001",
+    "org.jruby.ast.executable;1.7.18.redhat-001",
+    "org.jruby.java.addons;1.7.18.redhat-001",
+    "org.jruby.main;1.7.18.redhat-001",
+    "org.jruby.compiler;1.7.18.redhat-001",
+    "org.jruby.ext.bigdecimal;1.7.18.redhat-001",
+    "org.jruby.java.proxies;1.7.18.redhat-001",
+    "org.jruby.org.objectweb.asm.tree.analysis;1.7.18.redhat-001",
+    "org.jruby;1.7.18.redhat-001",
+    "org.jruby.ir.representations;1.7.18.redhat-001",
+    "org.jruby.ext.timeout;1.7.18.redhat-001",
+    "org.jruby.ext.io.try_nonblock;1.7.18.redhat-001",
+    "org.jruby.runtime.opto;1.7.18.redhat-001",
+    "org.jruby.java.codegen;1.7.18.redhat-001",
+    "org.jruby.embed.osgi.utils;1.7.18.redhat-001",
+    "org.jruby.embed.util;1.7.18.redhat-001",
+    "org.jruby.ir.dataflow;1.7.18.redhat-001",
+    "org.jruby.ant;1.7.18.redhat-001",
+    "org.jruby.runtime.profile;1.7.18.redhat-001",
+    "org.jruby.ir.interpreter;1.7.18.redhat-001",
+    "org.jruby.java.dispatch;1.7.18.redhat-001",
+    "org.jruby.ir.instructions;1.7.18.redhat-001",
+    "org.jruby.demo.ext;1.7.18.redhat-001",
+    "org.jruby.ext.coverage;1.7.18.redhat-001",
+    "org.jruby.ir.operands;1.7.18.redhat-001",
+    "org.jruby.ext.jruby;1.7.18.redhat-001",
+    "org.jruby.compiler.impl;1.7.18.redhat-001",
+    "org.jruby.internal.runtime.methods;1.7.18.redhat-001",
+    "org.jruby.ir.listeners;1.7.18.redhat-001",
+    "org.jruby.runtime.callsite;1.7.18.redhat-001",
+    "org.jruby.ext.iconv;1.7.18.redhat-001",
+    "org.jruby.ir.targets;1.7.18.redhat-001",
+    "org.jruby.ext.pathname;1.7.18.redhat-001",
+    "org.jruby.ext.tempfile;1.7.18.redhat-001",
+    "org.jruby.embed.io;1.7.18.redhat-001",
+    "org.jruby.ext.stringio;1.7.18.redhat-001",
+    "org.jruby.ir.passes;1.7.18.redhat-001",
+    "org.jruby.runtime.assigner;1.7.18.redhat-001",
+    "org.jruby.cext;1.7.18.redhat-001",
+    "org.jruby.ir.instructions.calladapter;1.7.18.redhat-001",
+    "org.jruby.ext.mathn;1.7.18.redhat-001",
+    "org.jruby.runtime.marshal;1.7.18.redhat-001",
+    "org.jruby.compiler.util;1.7.18.redhat-001",
+    "org.jruby.embed.osgi;1.7.18.redhat-001",
+    "org.jruby.runtime.scope;1.7.18.redhat-001",
+    "org.jruby.util;1.7.18.redhat-001",
+    "org.jruby.runtime;1.7.18.redhat-001",
+    "org.jruby.parser;1.7.18.redhat-001",
+    "org.jruby.ast;1.7.18.redhat-001",
+    "org.jruby.ir.dataflow.analyses;1.7.18.redhat-001",
+    "org.jruby.runtime.encoding;1.7.18.redhat-001",
+    "org.jruby.ext.ffi;1.7.18.redhat-001",
+    "org.jruby.ext.ffi.io;1.7.18.redhat-001",
+    "org.jruby.ext.strscan;1.7.18.redhat-001",
+    "org.jruby.java.util;1.7.18.redhat-001",
+    "org.jruby.ext.delegate;1.7.18.redhat-001",
+    "org.jruby.ast.util;1.7.18.redhat-001",
+    "org.jruby.ext.digest;1.7.18.redhat-001",
+    "org.jruby.evaluator;1.7.18.redhat-001",
+    "org.jruby.embed.jsr223;1.7.18.redhat-001",
+    "org.jruby.internal.runtime;1.7.18.redhat-001",
+    "org.jruby.ir.util;1.7.18.redhat-001",
+    "org.jruby.javasupport.proxy;1.7.18.redhat-001",
+    "org.jruby.common;1.7.18.redhat-001",
+    "org.jruby.ast.types;1.7.18.redhat-001",
+    "org.jruby.javasupport.util;1.7.18.redhat-001",
+    "org.jruby.environment;1.7.18.redhat-001",
+    "org.jruby.javasupport;1.7.18.redhat-001",
+    "org.jruby.ext.tracepoint;1.7.18.redhat-001",
+    "org.jruby.java.invokers;1.7.18.redhat-001",
+    "org.jruby.ir.instructions.ruby20;1.7.18.redhat-001",
+    "org.jruby.util.unsafe;1.7.18.redhat-001",
+    "org.jruby.ext.etc;1.7.18.redhat-001",
+    "org.jruby.ext.psych;1.7.18.redhat-001",
+    "org.jruby.embed;1.7.18.redhat-001",
+    "org.jruby.platform;1.7.18.redhat-001",
+    "org.jruby.ext.weakref;1.7.18.redhat-001",
+    "org.jruby.ast.java_signature;1.7.18.redhat-001",
+    "org.jruby.ext.ffi.jffi;1.7.18.redhat-001",
+    "org.jruby.ir.transformations.inlining;1.7.18.redhat-001",
+    "org.jruby.ir.instructions.defined;1.7.18.redhat-001",
+    "org.jruby.lexer.yacc;1.7.18.redhat-001",
+    "org.jruby.ext.socket;1.7.18.redhat-001",
+    "org.jruby.runtime.profile.builtin;1.7.18.redhat-001",
+    "org.jruby.org.objectweb.asm.tree;1.7.18.redhat-001",
+    "org.jruby.ext.rbconfig;1.7.18.redhat-001",
+    "org.jruby.anno;1.7.18.redhat-001",
+    "org.jruby.runtime.ivars;1.7.18.redhat-001",
+    "org.jruby.ext.io.wait;1.7.18.redhat-001",
+    "org.jruby.runtime.invokedynamic;1.7.18.redhat-001",
+    "org.jruby.gen;1.7.18.redhat-001",
+    "org.jruby.ext.net.protocol;1.7.18.redhat-001",
+    "org.jruby.ast.visitor;1.7.18.redhat-001",
+    "org.jruby.ext.enumerator;1.7.18.redhat-001",
+    "org.jruby.ext.fiber;1.7.18.redhat-001",
+    "org.jruby.javasupport.bsf;1.7.18.redhat-001",
+    "org.jruby.org.objectweb.asm.commons;1.7.18.redhat-001",
+    "org.jruby.ir.instructions.specialized;1.7.18.redhat-001",
+    "org.jruby.ext.thread;1.7.18.redhat-001",
+    "org.jruby.ir;1.7.18.redhat-001",
+    "org.jruby.exceptions;1.7.18.redhat-001",
+    "org.jruby.ext.nkf;1.7.18.redhat-001",
+    "org.jruby.runtime.load;1.7.18.redhat-001",
+    "org.jruby.threading;1.7.18.redhat-001",
+    "org.jruby.org.objectweb.asm;1.7.18.redhat-001",
+    "org.jruby.util.encoding;1.7.18.redhat-001",
+    "org.jruby.ir.runtime;1.7.18.redhat-001",
+    "org.jruby.util.io;1.7.18.redhat-001",
+    "org.jruby.ext.fcntl;1.7.18.redhat-001",
+    "org.jruby.lexer;1.7.18.redhat-001",
+    "org.jruby.runtime.component;1.7.18.redhat-001",
+    "org.jruby.org.objectweb.asm.util;1.7.18.redhat-001",
+    "org.jruby.runtime.builtin;1.7.18.redhat-001",
+    "org.jruby.management;1.7.18.redhat-001",
+    "org.jruby.runtime.callback;1.7.18.redhat-001",
+    "org.jruby.util.func;1.7.18.redhat-001",
+    "org.jruby.util.cli;1.7.18.redhat-001",
+    "org.jruby.util.log;1.7.18.redhat-001",
+    "org.jruby.ir.instructions.ruby19;1.7.18.redhat-001",
+    "org.jruby.ext;1.7.18.redhat-001",
+    "org.jruby.ext.securerandom;1.7.18.redhat-001",
+    "org.jruby.util.collections;1.7.18.redhat-001",
+    "org.jruby.embed.osgi.internal;1.7.18.redhat-001",
+    "org.jruby.ext.zlib;1.7.18.redhat-001",
+    "org.jruby.embed.internal;1.7.18.redhat-001",
+    "org.jruby.org.objectweb.asm.signature;1.7.18.redhat-001",
+    "org.jruby.runtime.backtrace;1.7.18.redhat-001",
+    "org.jruby.embed.bsf;1.7.18.redhat-001"
+  ],
+  "state": "ACTIVE",
+  "requiredBundles": [
+    "org.apache.felix.framework",
+    "org.objectweb.asm.all",
+    "org.apache.geronimo.specs.geronimo-servlet_3.0_spec"
+  ],
+  "importedPackages": [
+    "javax.lang.model.element;0.0.0",
+    "javax.swing;0.0.0",
+    "javax.servlet;2.6.0",
+    "org.osgi.framework.wiring;1.1.0",
+    "javax.lang.model;0.0.0",
+    "javax.lang.model.util;0.0.0",
+    "org.osgi.framework;1.7.0",
+    "javax.lang.model.type;0.0.0",
+    "org.objectweb.asm;5.0.3",
+    "javax.script;0.0.0",
+    "javax.annotation.processing;1.2.0",
+    "sun.misc;0.0.0",
+    "javax.management;0.0.0",
+    "javax.servlet;3.0.0"
+  ],
+  "servicesInUse": [],
+  "lastModified": "Dec 23 2015 12:17",
+  "version": "1.7.18.redhat-001",
+  "bundleId": 230,
+  "flag": true,
+  "message": null
+}
+
+6>	To load the configuration of a bundle
+URL : http://localhost:8080/StatisticsApi/bundle/loadConfig/org.jolokia.osgi
+(Where org.jolokia.osgi is the Name in the response of 4th request)
+RequestType: GET
+Response:
+{
+  "configPropList": [
+    {
+      "name": "org.jolokia.user",
+      "value": "admin"
+    },
+    {
+      "name": "felix.fileinstall.filename",
+      "value": "file:/D:/softwares/jboss-fuse-6.2.0.redhat-133/etc/org.jolokia.osgi.cfg"
+    },
+    {
+      "name": "org.jolokia.password",
+      "value": "admin"
+    },
+    {
+      "name": "org.jolokia.authMode",
+      "value": "jaas"
+    },
+    {
+      "name": "org.jolokia.realm",
+      "value": "karaf"
+    },
+    {
+      "name": "service.pid",
+      "value": "org.jolokia.osgi"
+    }
+  ],
+  "flag": true,
+  "message": null
+}
+
+7>	To get the dependent bundle on this bundle, you need to pass bundleName and ID in the request url
+URL: http://localhost:8080/StatisticsApi/bundle/getDependent/org.jruby.jruby/230
+Where (bundleName = org.jruby.jruby and bundleId = 230, these can be obtained from request 4th response)
+RequestType: GET
+Response:
+{
+  "dependentBundleList": [
+    {
+      "bundleId": "169",
+      "bundleName": "org.apache.servicemix.bundles.spring-context"
+    }
+  ],
+  "flag": true,
+  "message": null
+}
+
+
+8>	To get all the Camel Route in a particular bundle:
+URL: http://localhost:8080/StatisticsApi/bundle/getRoute/com.cox.bis.eSignService
+Where (com.cox.bis.eSignService is  the bundle-name in the response of 4th request)
+RequestType: GET
+Response:
+{
+  "routeDefinitionResponse": [
+{
+"routeId" : "eSignRoute",
+"endpoint":"cxf:esignServicemainRoute",
+"operations":["getOperation1", "getOperation2", "getOperation3"]
+},
+{
+"routeId" : "eSignRoute2",
+"endpoint":"cxf:esignService/childRoute",
+"operations":["getOperation1", "getOperation2", "getOperation3"]
+}
+],
+  "flag": true,
+  "message": null
+}
+
+9>	To check version of a bundle in all the servers in a particular environment
+URL: http://localhost:8080/StatisticsApi/bundle/checkVersion/org.jruby.jruby
+Where (org.jruby.jruby is the BundleName)
+RequestType: GET
+Response:
+{
+  "bundleVersionList": [
+    {
+      "serverName": "10.62.62.46",
+      "version": "<font color='red'>Not Deployed</font>"
+    },
+    {
+      "serverName": "10.62.61.72",
+      "version": "<font color='red'>Not Deployed</font>"
+    },
+    {
+      "serverName": "10.2.0.172",
+      "version": "<font color='red'>Not Deployed</font>"
+    },
+    {
+      "serverName": "10.51.5.60",
+      "version": "1.7.18.redhat-001"
+    }
+  ],
+  "flag": true,
+  "message": null
+}
+
+DataSourceService
+10>	To get the list of Data sources deployed on the server.
+URL: http://localhost:8080/StatisticsApi/ds/list/10.62.61.120
+Where 10.62.61.120 is the server-name in this environment
+RequestType: GET
+Response:
+{
+  "dataSouceNames": [
+    "com.cox.bis.enterpriseservices:type=BasicDataSource",
+    "com.cox.bis.serviceability:type=BasicDataSource"
+  ],
+  "flag": true,
+  "message": null
+}
+
+11>	To get the connection information of a data source
+URL: http://localhost:8080/StatisticsApi/ds/getDbInfo/com.cox.bis.enterpriseservices:type=BasicDataSource
+Where com.cox.bis.enterpriseservices:type=BasicDataSource is the data source name which is in the previous response.
+RequestType: GET
+Response:
+{
+  "connectionAttr": {
+    "MaxTotal": 100,
+    "NumActive": 0,
+    "NumIdle": 1,
+    "MaxIdle": 20,
+    "MinIdle": 10
+  },
+  "flag": true,
+  "message": null
+}
+
+12>	To test the connection of a datasource
+URL: http://localhost:8080/StatisticsApi/ds/testConnection/com.cox.bis.enterpriseservices:type=BasicDataSource
+Where com.cox.bis.enterpriseservices:type=BasicDataSource is the data source name.
+RequestType: GET
+Response: 0 for success or 1 for failure
+
+13>	To get the dependent bundles with this datasource
+URL: http://localhost:8080/StatisticsApi/ds/getDSDependent/com.cox.bis.enterpriseservices:type=BasicDataSource
+Where com.cox.bis.enterpriseservices:type=BasicDataSource is the data source name.
+RequestType: GET
+Response: {
+  "dependentList": null,
+  "flag": false,
+  "message": "Dependents Not Found!!!"
+}
+Note: dependentList in the response will be an array of String. Please take care I am not able to get success response yet.
+
+14>	To test AS400 server connection.
+URL: http://localhost:8080/StatisticsApi/ds/testAS400Connection
+RequestType: GET
+Response: 0 for success or 1 for failure
+
+15>	To test the ICOM server connection.
+URL: http://localhost:8080/StatisticsApi/ds/testICOMConnection
+RequestType: GET
+Response: 0 for success or 1 for failure
+
+QuartzService
+16>	To get all the scheduler deployed in a particular server
+URL: http://localhost:8080/StatisticsApi/quartz/allScheduler/127.0.0.1
+Where 127.0.0.1 server ip
+RequestType: GET
+Response: {
+  "schedulerNameList": [
+    "quartz:instance=NON_CLUSTERED,name=DefaultQuartzScheduler-camel-cxf-contract-first-blueprint,type=QuartzScheduler"
+  ],
+  "flag": true,
+  "message": null
+}
+
+17>	To get all the trigger with one of the above scheduler, pass the scheduler name in the url.
+URL: http://localhost:8080/StatisticsApi/quartz/allTrigger/quartz:instance=NON_CLUSTERED,name=DefaultQuartzScheduler-camel-cxf-contract-first-blueprint,type=QuartzScheduler
+Where quartz:instance=NON_CLUSTERED,name=DefaultQuartzScheduler-camel-cxf-contract-first-blueprint,type=QuartzScheduler is the scheduler name.
+RequestType: GET
+Response:
+{
+  "triggerDetailList": [
+    {
+      "jobName": "myTimerName",
+      "fireInstanceId": "1455177932278",
+      "misfireInstruction": 1,
+      "nextFireTime": 1455286175000,
+      "description": null,
+      "jobGroup": "myGroupName",
+      "priority": 5,
+      "finalFireTime": null,
+      "calendarName": null,
+      "name": "myTimerName",
+      "previousFireTime": 1455286170000,
+      "startTime": 1455177910000,
+      "endTime": null,
+      "group": "myGroupName"
+    }
+  ],
+  "flag": true,
+  "message": null
+}

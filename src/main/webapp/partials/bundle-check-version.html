@@ -1,0 +1,22 @@
+<div class="row">
+  <div class="col-lg-12">
+    <div ng-show="versionError" class="alert alert-danger">{{versionError}}</div>
+    <div class="table-responsive">
+    <table ng-hide="versionError" class="table table-striped table-bordered bundle-info" cellspacing="0">
+      <thead>
+        <tr>
+          <th>Server Name</th>
+          <th>Version</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr ng-repeat="check in versionList">
+          <td>{{check.serverName}}</td>
+          <td>{{check.version}}</td>
+        </tr>
+
+      </tbody>
+    </table>
+  </div>
+  </div>
+</div>

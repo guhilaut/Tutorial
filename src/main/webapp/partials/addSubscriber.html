@@ -1,0 +1,30 @@
+<div class="modal-content">
+  <form name="addform" ng-submit="sendTo();" novalidate>
+    <div class="modal-body">
+      <div class="row">
+        <div class="col-lg-6 form-group">
+            <label for="email"><font color="red" size="4"><b>*</b></font>Client Id:</label>
+            <input type="text" class="form-control" ng-model="ClientId" placeholder='Client Id' required />
+          </div>
+          <div class="col-lg-6 form-group">
+            <label for="email"><font color="red" size="4"><b>*</b></font>Subscriber Name:</label>
+            <input type="text" class="form-control" ng-model="SubscriberName" placeholder='Subscriber Name' required />
+          </div>
+          <div class="col-lg-6 form-group">
+            <label for="email">Topic Name:</label>
+            <input type="text" class="form-control" ng-model="TopicName" name="topic" placeholder="Topic Name" disabled />
+          </div>
+
+          <div class="col-lg-6 form-group">
+            <label for="email">JMS Selector:</label>
+            <input type="text" class="form-control" ng-model="Selector" name="Selector" placeholder="JMS Selector" />
+          </div>
+
+      </div>
+
+      <div class="modal-footer">
+        <input type="submit" value="Add" class="btn btn-info" ng-disabled="addform.$invalid">
+        <button type="button" class="btn btn-default" ng-click="cancel()">Cancel</button>
+      </div>
+  </form>
+  </div>

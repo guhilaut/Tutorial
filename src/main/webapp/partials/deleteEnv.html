@@ -1,0 +1,15 @@
+<style>
+.btn{background:none; border-radius: 26px; padding: 6px 35px; outline: none;}
+.btn-danger{border:1px solid #990000; color:#990000;}
+.btn-default{border:1px solid #A4A4A4; color:#A4A4A4;}
+.modal-footer{text-align: center;}
+</style>
+<div class="modal-content">
+    <div class="modal-body">
+      Are you sure you want to delete this Environment?
+    </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-danger" ng-click="delefunction(evn.envName, $index)">Yes</button>
+    <button type="button" class="btn btn-default" ng-click="cancel()">No</button>
+  </div>
+</div>

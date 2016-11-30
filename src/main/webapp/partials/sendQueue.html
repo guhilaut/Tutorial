@@ -1,0 +1,43 @@
+<div class="modal-content">
+  <form name="addform" ng-submit="sendTo();" novalidate>
+    <div class="modal-body">
+      <div class="row">
+        <div class="col-lg-6 form-group">
+            <label for="email">Destination:</label>
+            <input type="text" class="form-control" ng-model="destination" placeholder='Destination' disabled />
+          </div>
+          <div class="col-lg-6 form-group">
+            <label for="email">Correlation Id:</label>
+            <input type="text" class="form-control" ng-model="correlation" placeholder='Correlation Id' />
+          </div>
+          <div class="col-lg-6 form-group">
+            <label for="email">Reply To:</label>
+            <input type="text" class="form-control" ng-model="replyTo" name="reply" placeholder="Reply To">
+          </div>
+
+          <div class="col-lg-6 form-group">
+            <label for="email">Persistent Delivery:</label>
+            <select class="form-control" ng-model="persistent" ng-init="persistent='1'">
+              <option value="2">Persistent</option>
+              <option value="1" ng-selected="true">Non Persistent</option>
+            </select>
+          </div>
+          <div class="col-lg-6 form-group">
+            <label for="email">Number Of Messages To Send(Max - 1000):</label>
+            <input type="number" class="form-control" min="1"
+       max="1000" ng-model="noMessage" name="messages">
+       <span class="label label-danger" ng-show="addform.messages.$invalid ">Maximum Limit 1000. </span>
+          </div>
+      </div>
+      <div class="row">
+        <div class="col-lg-12 form-group">
+          <label for="email">Message:<span style="color:red;">*</span></label>
+          <textarea class="form-control" rows="6" ng-model="messageBody" placeholder="Message" required></textarea>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <input type="submit" value="Send message" class="btn btn-info" ng-disabled="addform.$invalid">
+        <button type="button" class="btn btn-default" ng-click="cancel()">Cancel</button>
+      </div>
+  </form>
+  </div>

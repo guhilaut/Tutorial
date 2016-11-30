@@ -1,0 +1,54 @@
+<style>
+textarea {
+    resize: none;
+}
+</style>
+<div class="row">
+  <div class="col-lg-12">
+    <div ng-show="configError" class="alert alert-danger">{{configError}}</div>
+    <div ng-hide="configError">
+      <div class="col-lg-4 col-md-4">
+      <div class="list-group">
+      <ul style="margin:0;padding:0;">
+        <li ng-repeat="data in configList" style="list-style:none; margin:5px 0;">
+          <a href="javascript:void(0)" class="list-group-item" ng-class="{'triangle': $parent.tableshow==data}" ng-click="obj.selected=data;configprop(data);" style=" background:#F3F3F3; border:1px solid #ddd; padding:8px; word-break:break-all;">{{data}}</a>
+        </li>
+      </ul>
+      </div>
+    </div>
+    <div class="col-lg-8 col-md-8">
+
+      <div ng-show="tableshow==obj.selected">
+        <div class="open-detail" ng-show="!configPropList">Select a Load Config in the tree to continue.</div>
+        <div ng-show="configPropError" class="alert alert-danger">{{configPropError}}</div>
+        <div class="table-responsive">
+        <table ng-show="configPropList.length>0" class="table table-striped table-bordered bundle-info" cellspacing="0">
+            <tr>
+              <td colspan="2" style="text-align:right;">
+                <button ng-click="addConfig()" class="btn btn-success btn-sm" ng-show="configEdit" tooltip-placement="bottom" tooltip="Add"><i class="fa fa-plus" aria-hidden="true"></i></button>
+                <button ng-click="editConfig()" class="btn btn-warning btn-sm" ng-show="configEdit" tooltip-placement="bottom" tooltip="Edit"><i class="fa fa-pencil-square-o"></i></button>
+
+                 <button ng-click="saveConfig()" class="btn btn-info btn-sm" ng-show="configSave" tooltip-placement="bottom" tooltip="Save"><i class="fa fa-floppy-o" aria-hidden="true"></i></button>
+                <button ng-click="cancelConfig()" class="btn btn-warning btn-sm" ng-show="configCancel" tooltip-placement="bottom" tooltip="Cancel"><i class="fa fa-times" aria-hidden="true"></i></button>
+                <button ng-click="deleteConfig()"  class="btn btn-danger btn-sm" ng-show="configEdit" tooltip-placement="bottom" tooltip="Delete"><i class="fa fa-trash-o" aria-hidden="true"></i></button>
+
+              </td>
+            </tr>
+            <tr>
+              <th>Name</th>
+              <th>Value</th>
+            </tr>
+            <tr ng-repeat="data in configPropList">
+              <td style="width:100px;"><div style="word-break:break-all">{{data.name}}</div></td>
+              <td><textarea ng-model="data.value" class="form-control" ng-readonly="editable"></textarea></td>
+
+            </tr>
+        </table>
+      </div>
+        <div ng-show="configPropList.length==0 && !configPropError" class="alert alert-danger">No Record Found.</div>
+      </div>
+    </div>
+
+    </div>
+  </div>
+</div>

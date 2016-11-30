@@ -1,0 +1,47 @@
+<style>
+.menu {
+    position: relative;
+    display: inline-block;
+}
+
+.menu-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    right:0;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    padding: 5px 16px;
+}
+.menu-content:hover{text-decoration: none;}
+.menu:hover .menu-content {
+    display: block;
+}
+</style>
+<nav class="navbar navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <span class="navbar-brand" style="margin-top:7px;"><img src="images/FameLogo.svg" style="width:256px;" /></span>
+        <div class="menu hidden-lg hidden-md hidden-sm" style="float:right; color:#FFF; margin-right:10px; margin-top:25px;" ng-if="currentState.name!=='app.env'">
+            <span>{{userName}}</span>
+
+              <a class="menu-content" ng-href="#/app/env" ng-click="cleartable();">Logout</a>
+
+          </div>
+      </div>
+      <!-- <div class="navbar-collapse collapse"> -->
+        <div class="menu hidden-xs" style="float:right; color:#FFF; margin-top:25px;" ng-show="currentState.name!='app.env'">
+            <span>{{userName}}</span>
+
+              <a class="menu-content" ng-href="#/app/env" ng-click="cleartable();">Logout</a>
+
+          </div>
+        <!-- <ul class="nav navbar-nav navbar-right">
+            <li style="line-height: 50px; color:#FFF;"></li>
+            <li style="text-transform:italic;"></li>
+          </ul> -->
+      <!-- </div> -->
+    </div>
+  </nav>
+  <div data-growl=""></div>
+  <div class="container-fluid" ui-view="content"> </div>

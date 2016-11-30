@@ -1,0 +1,157 @@
+<style>
+  .btn {
+    background: none;
+    border-radius: 26px;
+    padding: 6px 35px;
+    outline: none;
+  }
+
+  .btn-danger {
+    border: 1px solid #990000;
+    color: #990000;
+  }
+
+  .btn-default {
+    border: 1px solid #A4A4A4;
+    color: #A4A4A4;
+  }
+
+  .btn-info {
+    border: 1px solid #0388C9;
+    color: #0388C9;
+  }
+
+  .modal-footer {
+    text-align: center;
+  }
+
+  .editable-hide {
+    display: none;
+  }
+.iplist tr td:nth-child(1){width:15%;}
+.iplist tr td:nth-child(2){width:25%;}
+.iplist tr td:nth-child(3){width:15%;}
+.iplist tr td:nth-child(4){width:25%;}
+.iplist tr td:nth-child(5){width:10%;}
+</style>
+<div class="modal-content">
+  <!-- <div class="modal-header">
+    <button type="button" class="close" ng-click="cancel()">&times;</button>
+    <h4 class="modal-title">Add Environment</h4>
+  </div> -->
+  <div class="modal-body">
+    <div class="row">
+      <div class="col-lg-6">
+        <div class="form-group">
+          <label for="email">Environment Name:
+            <span style="color:red;">*</span></label>
+          <input type="text" class="form-control" ng-model="envname" ng-keyup="validEnv()">
+          <div class="col-lg-12 alert alert-danger" ng-show="envnameMsg" style="color:#a94442;  padding:2px 5px; border-radius:0;">
+            {{envnameMsg}}
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-12">
+      <form name="addform" ng-submit="addServer(addform.$valid);" novalidate>
+        <div class="col-lg-2 form-group">
+          <label for="email">Scheme:</label>
+          <input type="text" class="form-control" name="sche" list="schemes" ng-model="sche">
+          <datalist id="schemes">
+            <option value="http">
+            <option value="https">
+          </datalist>
+        </div>
+        <div class="col-lg-3 form-group">
+          <label for="email">Ip:</label>
+          <input type="text" class="form-control" ng-model="server" name="server123" ng-pattern="/\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}/" placeholder='xxx.xxx.xxx.xxx' ng-required="true" />
+          <div class="col-lg-12 alert alert-danger" ng-show="(addform.server123.$error.pattern && add_submitted) || (addform.server123.$error.required && add_submitted) || (ipList.indexOf(server)>-1 && (!addform.server123.$error.pattern) && add_submitted)" style="color:#a94442;  padding:2px 5px; border-radius:0;">
+            <span ng-show="addform.server123.$error.pattern && add_submitted">value must be in this 'xxx.xxx.xxx.xxx' patern </span>
+            <span ng-show="addform.server123.$error.required && add_submitted"> Must not be empty</span>
+            <span ng-show="ipList.indexOf(server)>-1 && (!addform.server123.$error.pattern) && add_submitted">Already in the list</span>
+          </div>
+        </div>
+        <div class="col-lg-2 form-group">
+          <label for="email">Port:</label>
+          <input type="number" ng-minlength="4" ng-maxlength="4" class="form-control" ng-model="portserver" name="port" placeholder="port" required>
+          <div class="col-lg-12 alert alert-danger" ng-show="(addform.port.$error.required && add_submitted) || (addform.port.$error.minlength && add_submitted) ||  (addform.port.$error.maxlength && add_submitted)">
+          <span ng-show="addform.port.$error.required && add_submitted"> Must not be empty</span>
+          <span ng-show="addform.port.$error.minlength && add_submitted"> minimum 4 digit</span>
+          <span ng-show="addform.port.$error.maxlength && add_submitted"> maxmimum 4 digit</span>
+        </div>
+        </div>
+        <div class="col-lg-3 form-group">
+          <label for="email">Jolokia Url:</label>
+          <input type="text" class="form-control" ng-model="jolokia" name="jolokiaurl" placeholder="Jolokia Url" required>
+          <div class="col-lg-12 alert alert-danger" ng-show="addform.jolokiaurl.$error.required && add_submitted">
+          <span ng-show="addform.jolokiaurl.$error.required && add_submitted"> Must not be empty</span>
+        </div>
+        </div>
+        <div class="col-lg-2" style="margin-top:5px;">
+          <br/>
+          <button type="submit" class="btn btn-info" tooltip-placement="bottom" tooltip="Add Server" style="padding:6px 11px;"><i class="fa fa-plus" aria-hidden="true"></i></button>
+        </div>
+      </form>
+    </div>
+  </div>
+    <div class="row">
+      <div class="col-lg-12" ng-show="listMsg">
+        <div class="alert alert-danger" style="color:#a94442;  padding:2px 5px; border-radius:0;">
+          {{listMsg}}</div>
+      </div>
+    </div>
+    <div class="row" ng-hide="ipList.length==0">
+      <form form  editable-form name="rowform">
+      <div class="col-lg-12">
+        <table class="table table-bordered table-striped iplist">
+          <thead>
+            <tr>
+              <th>Scheme</th>
+              <th>Ip</th>
+              <th>Port</th>
+              <th>Jolokia Url</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr ng-repeat="iprow in ipList">
+              <td><span editable-text="iprow.scheme"  e-name="scheme" e-form="rowform" onbeforesave="checkVal($data, scheme)">{{iprow.scheme}}</span></td>
+              <td><span editable-text="iprow.ip" e-name="ip" onbeforesave="checkIP($data, ip)" e-form="rowform" e-required>
+                {{iprow.ip}}
+              </span></td>
+              <td><span editable-text="iprow.port" e-name="port" e-form="rowform" onbeforesave="checkVal($data, port)" e-required>{{iprow.port}}</span></td>
+              <td><span editable-text="iprow.jolokiaUrl" e-name="jolokiaUrl" e-form="rowform" onbeforesave="checkVal($data, jolokiaUrl)" e-required>{{iprow.jolokiaUrl}}</span></td>
+              <td>
+                <div onbeforesave="saveip($data, ip, scheme, jolokiaUrl, port)" ng-show="rowform.$visible" class="form-buttons form-inline">
+                  <button type="submit" tooltip-placement="bottom" tooltip="Save"  ng-disabled="changeState" style="background: none;border: none;">
+                    <img ng-src="images/SaveTick.svg"  style="width:18px; height:18px; color:#FFF;" alt="Edit" />
+                  </button>
+                  <a href="javascript:void(0)" ng-disabled="rowform.$waiting" tooltip-placement="bottom" tooltip="Cancel" ng-click="rowform.$cancel()">
+                    <img ng-src="images/Close.svg" style="width:18px; height:18px; color:#FFF;" alt="Cancel" />
+                  </a>
+
+                </div>
+
+                <div class="text-center"  ng-show="!rowform.$visible">
+                  <a href="javascript:void(0)" tooltip-placement="bottom" tooltip="Edit"  ng-click="rowform.$show(); edit()"><img ng-src="images/Edit.svg" style="width:16px; height:16px" alt="Edit" /></a>
+                  <a href="javascript:void(0)" ng-click="deleteip($index)" tooltip-placement="bottom" tooltip="Delete"><img ng-src="images/Delete.svg" style="width:16px; height:16px" alt="Delete" /></a>
+                </div>
+
+              </td>
+            </tr>
+
+          </tbody>
+        </table>
+
+      </div>
+      <div class="modal-footer">
+        <input type="button" value="Save" class="btn btn-info" ng-click="ok()" ng-disabled="rowform.$visible">
+        <button type="button" class="btn btn-default" ng-click="cancel()">Cancel</button>
+      </div>
+    </form>
+    </div>
+
+
+
+  </div>

@@ -1,0 +1,53 @@
+<div class="container-fluid">
+  <div class="main-dashboard">
+    <div class="row">
+      <div class="col-lg-12 lnheight35" ng-hide="!countDetail">
+        <div class="pull-left">
+          <div class="btn-group breadcrumb">
+            <a ng-href="#/app/envdetail/{{activeTab}}/{{evnid}}">{{evnid}}</a>
+            <a ng-href="#/app/{{activeTab}}/{{evnid}}/serverdashboard/{{severDetails.name}}">{{severDetails.name}} Dashboard</a>
+            <a href="javascript:void(0)">Active MQ</a>
+          </div>
+        </div>
+        <div class="pull-right">
+          <a ng-href="#/app/{{activeTab}}/{{evnid}}/serverdashboard/{{severDetails.name}}" class="btn btn-danger" tooltip-placement="bottom" tooltip="Back" style="padding:0 12px;"><i class="fa fa-angle-left" aria-hidden="true"></i> Back</a>
+        </div>
+      </div>
+      <div class="col-lg-12 lnheight35" ng-hide="countDetail">
+        <div class="pull-left">
+          <div class="btn-group breadcrumb">
+            <a ng-href="#/app/envdetail/{{activeTab}}/{{evnid}}">{{evnid}}</a>
+            <a href="javascript:void(0)">{{ip}} Active MQ</a>
+          </div>
+        </div>
+        <div class="pull-right">
+          <a href="#/app/{{activeTab}}/{{evnid}}/{{ip}}/logs" class="btn btn-warning" style="padding:0 12px;">Logs</a>
+          <a ng-href="#/app/envdetail/{{activeTab}}/{{evnid}}" class="btn btn-danger" tooltip-placement="bottom" tooltip="Back" style="padding:0 12px;"><i class="fa fa-angle-left" aria-hidden="true"></i> Back</a>
+        </div>
+      </div>
+    </div>
+    <div ng-include="'partials/header-details.html'" ng-hide="!countDetail"></div>
+    <div class="row" ng-hide="countDetail">
+      <div class="col-lg-12">
+        <div class="panel panel-default">
+          <div class="panel-heading">Memory Utillization </div>
+          <div class="panel-body">  <div id="chartdiv" style="height:300px;"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="bs-tab">
+    <ul class="nav nav-tabs" id="myTab" ng-init="active='amqhome'">
+      <li ng-class="(active=='amqhome')?'active':''"><a href="javascript:void(0);" ng-click="go('amqhome');active='amqhome';">Home</a></li>
+      <li ng-class="(active=='queue')?'active':''"><a href="javascript:void(0);" ng-click="go('queue');active='queue';">Queue</a></li>
+      <li ng-class="(active=='topic')?'active':''"><a href="javascript:void(0);" ng-click="go('topic');active='topic';">Topic</a></li>
+
+    </ul>
+    <div class="tab-content">
+      <div class="tab-pane fade in active">
+        <div ui-view="content"> </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>

@@ -1,0 +1,15 @@
+<div ng-show="errrormessage" class="alert alert-danger">{{errrormessage}}</div>
+<script type="text/ng-template"  id="tree_item_renderer.html">
+
+  <span class="spanLine"></span>  <button class="btn btn-success add" ng-click="createtree(data)" style="font-size: 10px; line-height: 11px;" ng-show="data.bundleName!='Dependent not found' && data.nodes.length==0"><i class="fa fa-plus" ></i></button>
+    <button class="btn btn-danger del" ng-click="delete(data)" ng-show="data.nodes.length > 0" style="font-size: 10px; line-height: 11px;"><i class="fa fa-minus"></i></button>
+      {{data.bundleName}}
+    <ul style="list-style-type:none;">
+        <li ng-repeat="data in data.nodes"  ng-include="'tree_item_renderer.html'"></li>
+    </ul>
+</script>
+
+
+<ul ng-hide="errrormessage" style="list-style-type:none;" class="tree">
+    <li ng-repeat="data in tree" ng-include="'tree_item_renderer.html'" attr="{{data}}"  class="childTree">{{data}}</li>
+</ul>

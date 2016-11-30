@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="icon" href="./images/favicon.ico" type="image/ico">
+<meta charset="utf-8">
+<!-- <meta http-equiv="refresh" content="30"> -->
+<meta http-equiv="X-UA-Compatible" content="IE=9">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<title>FAME: Fuse Application Monitoring Engine</title>
+
+    <link rel="stylesheet" href="./css/app.css"/>
+    <link rel="stylesheet" href="./css/animate.css"/>
+
+    <script >
+      var appurl='/StatisticsApi';
+      var userName ='null';
+    </script>
+
+    <!--[if lte IE 8]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/json2/20110223/json2.js"></script>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+    <script src="./js/vendor.js"></script>
+    <script src="./js/angular-animate.js"></script>
+    <script src="./js/angular-growl.js"></script>
+
+
+    <script src="./js/bootstrap.js"></script>
+    <script src="./js/xeditable.js"></script>
+
+    <script src="./js/app.js"></script>
+
+
+   <script src="./js/loader.js"></script>
+
+    <!-- <script type="text/javascript" src="./js/charts.js"></script> -->
+    <script type="text/javascript" src="./js/cronGen.js"></script>
+<!-- <script type="text/javascript">
+    google.charts.load('41', {packages: ['gauge']});
+    google.charts.setOnLoadCallback(createChart);
+</script> -->
+    <!-- <script>google.charts.load('current', {'packages':['gauge']});</script> -->
+    <!-- <script>google.charts.load('43', {'packages':['gantt']});</script> -->
+    <script src="./js/amcharts.js"></script>
+    <script src="./js/serial.js"></script>
+    <script src="./js/light.js"></script>
+
+</head>
+<body ng-app="mercuryApp" ng-controller="rootCtrl">
+    <div ui-view=""></div>
+    <footer class="footer">
+    <div class="container-fluid">
+      <p class="text-muted">Copyright &copy; 2016 Fame All rights reserved.</p>
+    </div>
+    </footer>
+  </div>
+</body>
+</html>

@@ -1,0 +1,19 @@
+<div class="modal-content">
+  <form role="form" ng-submit="deleteRow()" name="configForm" novalidate>
+  <div class="modal-header">
+    <button type="button" class="close" ng-click="cancel()">&times;</button>
+    <h4 class="modal-title">Delete Config</h4>
+  </div>
+  <div class="modal-body">
+
+      <div class="form-group">
+        <label for="email">Name: <span style="color:red;">*</span></label>
+        <select class="form-control" ng-model="config" ng-options="item.name for item in configPropList" required><option value="" disabled>Select</option></select>
+      </div>
+  </div>
+  <div class="modal-footer">
+    <input type="submit" value="Delete" class="btn btn-info" ng-disabled="configForm.$invalid">
+    <button type="button" class="btn btn-default" ng-click="cancel()">Cancel</button>
+  </div>
+</form>
+</div>

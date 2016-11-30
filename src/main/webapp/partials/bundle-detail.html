@@ -1,0 +1,40 @@
+<div class="container-fluid">
+  <div class="main-dashboard">
+    <div class="row">
+      <div class="col-lg-12 lnheight35">
+        <div class="pull-left">
+          <div class="btn-group breadcrumb">
+            <a ng-href="#/app/envdetail/{{activeTab}}/{{evnid}}">{{evnid}}</a>
+            <a ng-href="#/app/{{activeTab}}/{{evnid}}/serverdashboard/{{severDetails.name}}">{{severDetails.name}} Dashboard</a>
+            <a href="javascript:void(0)">Bundle Detail</a>
+          </div>
+        </div>
+        <div class="pull-right">
+        <a ng-href="#/app/{{activeTab}}/{{evnid}}/serverdashboard/{{severDetails.name}}" class="btn btn-danger" tooltip-placement="bottom" tooltip="Back" style="padding:0 12px;"><i class="fa fa-angle-left" aria-hidden="true"></i> Back</a>
+      </div>
+        <!-- <a ng-href="#/app/{{envid}}/serverdashboard/{{severDetails.name}}" style="font-size:30px;" tooltip-placement="bottom" tooltip="Back"><i class="fa fa-chevron-circle-left"></i></a> -->
+      </div>
+    </div>
+    <div ng-include="'partials/header-details.html'"></div>
+    <div class="row">
+      <div class="col-lg-12">
+        <b>Bundle Name:</b> {{bname}}
+      </div>
+    </div>
+    <div class="bs-tab">
+      <ul class="nav nav-tabs" id="myTab" ng-init="active='info'">
+        <li ng-class="(active=='info')?'active':''"><a href="javascript:void(0);" ng-click="go('info');active='info';">Bundle Detail</a></li>
+        <li ng-class="(active=='dependent')?'active':''"><a href="javascript:void(0);" ng-click="go('dependent');active='dependent';">Dependent Bundle</a></li>
+        <li ng-class="(active=='route')?'active':''"><a href="javascript:void(0);" ng-click="go('route');active='route';">Route Info</a></li>
+        <li ng-class="(active=='check-version')?'active':''"><a href="javascript:void(0);" ng-click="go('check-version');active='check-version';">Check Version</a></li>
+        <li ng-class="(active=='load-config')?'active':''"><a href="javascript:void(0);" ng-click="go('load-config');active='load-config';">Load Config</a></li>
+        <li ng-class="(active=='cxf')?'active':''"><a href="javascript:void(0);" ng-click="go('cxf');active='cxf';">Cxf</a></li>
+      </ul>
+      <div class="tab-content">
+        <div class="tab-pane fade in active">
+          <div ui-view="content"> </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
